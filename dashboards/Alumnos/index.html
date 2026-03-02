@@ -17,6 +17,13 @@
     <style>
         .logo-lg { max-height: 55px; width: auto; }
         .pc-sidebar .m-header { padding: 10px 20px; height: 80px; display: flex; align-items: center; }
+        
+        /* Ajuste para que el Header y el Botón de Menú sean siempre visibles en móvil */
+        @media (max-width: 1024px) {
+            .pc-header { display: flex !important; top: 0 !important; }
+            .pc-sidebar { transition: all 0.3s ease; }
+            .pc-sidebar.mob-sidebar-active { left: 0 !important; }
+        }
     </style>
 </head>
 
@@ -32,7 +39,7 @@
             <div class="navbar-content">
                 <ul class="pc-navbar">
                     <li class="pc-item pc-caption"><label>Académico</label></li>
-                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
+                    <li class="pc-item"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
                     <li class="pc-item"><a href="materias.html" class="pc-link"><span class="pc-micon"><i class="ti ti-book"></i></span><span class="pc-mtext">Mis Materias</span></a></li>
                     <li class="pc-item"><a href="horarios.html" class="pc-link"><span class="pc-micon"><i class="ti ti-calendar"></i></span><span class="pc-mtext">Horarios</span></a></li>
                     <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Calificaciones</span></a></li>
@@ -41,7 +48,6 @@
                     <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-credit-card"></i></span><span class="pc-mtext">Pagos y Facturación</span></a></li>
                     
                     <li class="pc-item pc-caption"><label>Otros</label></li>
-                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-bell"></i></span><span class="pc-mtext">Avisos</span></a></li>
                     <li class="pc-item"><a href="../../login.html" class="pc-link"><span class="pc-micon"><i class="ti ti-logout"></i></span><span class="pc-mtext">Cerrar Sesión</span></a></li>
                 </ul>
             </div>
@@ -54,10 +60,15 @@
         <div class="header-wrapper">
             <div class="me-auto pc-mob-drp">
                 <ul class="list-unstyled">
-                    <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="ti ti-menu-2"></i></a></li>
+                    <li class="pc-h-item pc-sidebar-collapse">
+                        <a href="#" class="pc-head-link ms-0" id="mobile-collapse-trigger">
+                            <i class="ti ti-menu-2" style="font-size: 24px; color: #ff6b00;"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
-            <div class="ms-auto">
+            <div class="ms-auto d-flex align-items-center">
+                <img src="../../assets/images/LogoColegioAnahuac.png" class="d-md-none me-2" style="max-height: 30px;" />
                 <ul class="list-unstyled">
                     <li class="dropdown pc-h-item">
                         <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button">
@@ -215,6 +226,21 @@
     
     <script>
         document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Alumno Anáhuac';
+
+        // Lógica corregida para móviles
+        document.getElementById('mobile-collapse-trigger').addEventListener('click', function(e) {
+            e.preventDefault();
+            const sidebar = document.querySelector('.pc-sidebar');
+            sidebar.classList.toggle('mob-sidebar-active');
+        });
+
+        // Cerrar menú al hacer clic fuera (opcional pero recomendado)
+        document.querySelector('.pc-container').addEventListener('click', function() {
+            const sidebar = document.querySelector('.pc-sidebar');
+            if (sidebar.classList.contains('mob-sidebar-active')) {
+                sidebar.classList.remove('mob-sidebar-active');
+            }
+        });
     </script>
 </body>
 </html>
