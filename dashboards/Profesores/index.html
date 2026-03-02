@@ -12,28 +12,99 @@
     <link rel="stylesheet" href="../../assets/css/style-preset.css" />
     <style>
         .logo-lg { max-height: 55px; width: auto; }
-        .pc-sidebar .m-header { padding: 10px 20px; height: 80px; }
+        .pc-sidebar .m-header { padding: 10px 20px; height: 80px; display: flex; align-items: center; }
     </style>
 </head>
 <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
     <nav class="pc-sidebar">
         <div class="navbar-wrapper">
-            <div class="m-header"><a href="#" class="b-brand"><img src="../../assets/images/ColegioAnahuac.png" class="logo-lg" /></a></div>
+            <div class="m-header">
+                <a href="#" class="b-brand"><img src="../../assets/images/ColegioAnahuac.png" alt="logo" class="logo-lg" /></a>
+            </div>
             <div class="navbar-content">
                 <ul class="pc-navbar">
                     <li class="pc-item pc-caption"><label>Docencia</label></li>
                     <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
                     <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-users"></i></span><span class="pc-mtext">Mis Grupos</span></a></li>
+                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-checklist"></i></span><span class="pc-mtext">Pase de Lista</span></a></li>
+                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-edit"></i></span><span class="pc-mtext">Captura de Notas</span></a></li>
                     <li class="pc-item pc-caption"><label>Otros</label></li>
                     <li class="pc-item"><a href="../../login.html" class="pc-link"><span class="pc-micon"><i class="ti ti-logout"></i></span><span class="pc-mtext">Cerrar Sesión</span></a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <header class="pc-header"><div class="header-wrapper"><div class="ms-auto"><ul class="list-unstyled"><li class="dropdown pc-h-item"><img src="../../assets/images/user/avatar-2.png" class="user-avtar" /></li></ul></div></div></header>
-    <div class="pc-container"><div class="pc-content"><h2>Panel de Control Docente</h2></div></div>
+    <header class="pc-header">
+        <div class="header-wrapper">
+            <div class="me-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="ti ti-menu-2"></i></a></li>
+                </ul>
+            </div>
+            <div class="ms-auto">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button">
+                            <img src="../../assets/images/user/avatar-2.png" alt="user-image" class="user-avtar" />
+                            <span><span class="user-name" id="userName">Profesor</span></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="pc-container">
+        <div class="pc-content">
+            <div class="row">
+                <div class="col-md-4 col-xl-4">
+                    <div class="card bg-grd-info order-card">
+                        <div class="card-body">
+                            <h6 class="text-white">Alumnos a Cargo</h6>
+                            <h2 class="text-end text-white"><i class="ti ti-users float-start"></i><span>124</span></h2>
+                            <p class="m-b-0">Promedio Grupal: 8.7</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xl-4">
+                    <div class="card bg-grd-success order-card">
+                        <div class="card-body">
+                            <h6 class="text-white">Asistencia Hoy</h6>
+                            <h2 class="text-end text-white"><i class="ti ti-user-check float-start"></i><span>95%</span></h2>
+                            <p class="m-b-0">3 Grupos Restantes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-xl-4">
+                    <div class="card bg-grd-warning order-card">
+                        <div class="card-body">
+                            <h6 class="text-white">Pendientes por Calificar</h6>
+                            <h2 class="text-end text-white"><i class="ti ti-file-certificate float-start"></i><span>12</span></h2>
+                            <p class="m-b-0">Tareas: 8 | Exámenes: 4</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header"><h5>Mis Clases de Hoy</h5></div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead><tr><th>Hora</th><th>Materia</th><th>Grupo</th><th>Salón</th><th>Estado</th></tr></thead>
+                                    <tbody>
+                                        <tr><td>08:00 - 10:00</td><td>Ingeniería de Software</td><td>IS-701</td><td>Aula A12</td><td><span class="badge bg-light-success">Concluida</span></td></tr>
+                                        <tr><td>10:00 - 12:00</td><td>Base de Datos Avanzada</td><td>IS-702</td><td>Lab C1</td><td><span class="badge bg-light-warning">En Progreso</span></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="../../assets/js/plugins/popper.min.js"></script>
     <script src="../../assets/js/plugins/bootstrap.min.js"></script>
     <script src="../../assets/js/pcoded.js"></script>
+    <script>document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Profesor Anáhuac';</script>
 </body>
 </html>

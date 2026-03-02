@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>Detalle de Materia | Colegio Anáhuac</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="icon" href="../../assets/images/ColegioAnahuac.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/fonts/phosphor/regular/style.css" />
+    <link rel="stylesheet" href="../../assets/fonts/tabler-icons.min.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" id="main-style-link" />
+    <link rel="stylesheet" href="../../assets/css/style-preset.css" />
+    
+    <style>
+        .logo-lg { max-height: 55px; width: auto; }
+        .pc-sidebar .m-header { padding: 10px 20px; height: 80px; display: flex; align-items: center; }
+        .syllabus-item { border-bottom: 1px solid #eee; padding: 10px 0; }
+        .syllabus-item:last-child { border-bottom: none; }
+        .task-status { width: 10px; height: 10px; border-radius: 50%; display: inline-block; margin-right: 5px; }
+        .bg-pending { background-color: #ffc107; }
+        .bg-delivered { background-color: #28a745; }
+        .bg-graded { background-color: #007bff; }
+    </style>
+</head>
+
+<body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <!-- [ Sidebar ] -->
+    <nav class="pc-sidebar">
+        <div class="navbar-wrapper">
+            <div class="m-header">
+                <a href="index.html" class="b-brand">
+                    <img src="../../assets/images/ColegioAnahuac.png" alt="logo" class="logo-lg" />
+                </a>
+            </div>
+            <div class="navbar-content">
+                <ul class="pc-navbar">
+                    <li class="pc-item pc-caption"><label>Académico</label></li>
+                    <li class="pc-item"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
+                    <li class="pc-item active"><a href="materias.html" class="pc-link"><span class="pc-micon"><i class="ti ti-book"></i></span><span class="pc-mtext">Mis Materias</span></a></li>
+                    <li class="pc-item"><a href="horarios.html" class="pc-link"><span class="pc-micon"><i class="ti ti-calendar"></i></span><span class="pc-mtext">Horarios</span></a></li>
+                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Calificaciones</span></a></li>
+                    <li class="pc-item pc-caption"><label>Otros</label></li>
+                    <li class="pc-item"><a href="../../login.html" class="pc-link"><span class="pc-micon"><i class="ti ti-logout"></i></span><span class="pc-mtext">Cerrar Sesión</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- [ Header ] -->
+    <header class="pc-header">
+        <div class="header-wrapper">
+            <div class="me-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="ti ti-menu-2"></i></a></li>
+                </ul>
+            </div>
+            <div class="ms-auto">
+                <ul class="list-unstyled">
+                    <li class="dropdown pc-h-item">
+                        <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button">
+                            <img src="../../assets/images/user/avatar-1.png" alt="user-image" class="user-avtar" />
+                            <span><span class="user-name" id="userName">Cargando...</span></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- [ Main Content ] -->
+    <div class="pc-container">
+        <div class="pc-content">
+            <!-- Header de Materia -->
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <div class="page-header-title">
+                                <h2 class="mb-0">Matemáticas Avanzadas</h2>
+                                <p class="text-muted">Profesor: Dr. Armando Casas | Ciclo: 2024-1</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <a href="materias.html" class="btn btn-outline-secondary"><i class="ti ti-arrow-left me-1"></i> Volver a Materias</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- COLUMNA IZQUIERDA: MÉTRICAS Y RECURSOS -->
+                <div class="col-lg-3">
+                    <div class="card bg-grd-primary text-white">
+                        <div class="card-body text-center">
+                            <h6>Calificación Actual</h6>
+                            <h2 class="text-white">9.5</h2>
+                            <p class="mb-0">Primer Parcial</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <h6 class="mb-0">Asistencias</h6>
+                                <span class="badge bg-light-success">98%</span>
+                            </div>
+                            <p class="small text-muted mb-0">Inasistencias registradas: <strong>1</strong></p>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header"><h5>Materiales de Clase</h5></div>
+                        <div class="card-body p-0">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <i class="ti ti-file-type-pdf f-20 text-danger me-2"></i>
+                                        <span class="small">Guía de Estudio.pdf</span>
+                                    </div>
+                                    <a href="#"><i class="ti ti-download"></i></a>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center">
+                                        <i class="ti ti-link f-20 text-primary me-2"></i>
+                                        <span class="small">Lectura Complementaria</span>
+                                    </div>
+                                    <a href="#"><i class="ti ti-external-link"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMNA CENTRAL: TAREAS -->
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <h5>Actividades y Tareas</h5>
+                            <span class="badge bg-light-warning">2 Pendientes</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Actividad</th>
+                                            <th>Fecha Entrega</th>
+                                            <th>Estado</th>
+                                            <th>Calif.</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <h6 class="mb-0">Ecuaciones de Segundo Grado</h6>
+                                                <small class="text-muted">Ejercicio práctico</small>
+                                            </td>
+                                            <td>25 Oct, 2024</td>
+                                            <td><span class="badge bg-light-warning">Pendiente</span></td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h6 class="mb-0">Investigación Derivadas</h6>
+                                                <small class="text-muted">Ensayo teórico</small>
+                                            </td>
+                                            <td>20 Oct, 2024</td>
+                                            <td><span class="badge bg-light-success">Entregado</span></td>
+                                            <td>-</td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <h6 class="mb-0">Examen Parcial I</h6>
+                                                <small class="text-muted">Evaluación escrita</small>
+                                            </td>
+                                            <td>15 Oct, 2024</td>
+                                            <td><span class="badge bg-light-primary">Calificado</span></td>
+                                            <td><strong>9.8</strong></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COLUMNA DERECHA: TEMARIO -->
+                <div class="col-lg-3">
+                    <div class="card">
+                        <div class="card-header"><h5>Temario del Curso</h5></div>
+                        <div class="card-body">
+                            <div class="accordion accordion-flush" id="syllabusAccordion">
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed py-2 px-0 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#unit1">
+                                            Unidad 1: Álgebra
+                                        </button>
+                                    </h2>
+                                    <div id="unit1" class="accordion-collapse collapse" data-bs-parent="#syllabusAccordion">
+                                        <div class="accordion-body px-0 py-2">
+                                            <ul class="list-unstyled small text-muted ps-2">
+                                                <li class="syllabus-item"><i class="ti ti-check text-success me-1"></i> 1.1 Polinomios</li>
+                                                <li class="syllabus-item"><i class="ti ti-check text-success me-1"></i> 1.2 Factorización</li>
+                                                <li class="syllabus-item"><i class="ti ti-circle me-1"></i> 1.3 Fracciones complejas</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed py-2 px-0 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#unit2">
+                                            Unidad 2: Cálculo
+                                        </button>
+                                    </h2>
+                                    <div id="unit2" class="accordion-collapse collapse" data-bs-parent="#syllabusAccordion">
+                                        <div class="accordion-body px-0 py-2">
+                                            <ul class="list-unstyled small text-muted ps-2">
+                                                <li class="syllabus-item"><i class="ti ti-circle me-1"></i> 2.1 Límites</li>
+                                                <li class="syllabus-item"><i class="ti ti-circle me-1"></i> 2.2 Derivadas</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/plugins/popper.min.js"></script>
+    <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+    <script src="../../assets/js/pcoded.js"></script>
+    <script>
+        document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Alumno Anáhuac';
+    </script>
+</body>
+</html>

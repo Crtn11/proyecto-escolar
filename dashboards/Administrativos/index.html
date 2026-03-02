@@ -12,23 +12,86 @@
     <link rel="stylesheet" href="../../assets/css/style-preset.css" />
     <style>
         .logo-lg { max-height: 55px; width: auto; }
-        .pc-sidebar .m-header { padding: 10px 20px; height: 80px; }
+        .pc-sidebar .m-header { padding: 10px 20px; height: 80px; display: flex; align-items: center; }
     </style>
 </head>
 <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
     <nav class="pc-sidebar">
         <div class="navbar-wrapper">
-            <div class="m-header"><a href="#" class="b-brand"><img src="../../assets/images/ColegioAnahuac.png" class="logo-lg" /></a></div>
+            <div class="m-header">
+                <a href="#" class="b-brand"><img src="../../assets/images/ColegioAnahuac.png" alt="logo" class="logo-lg" /></a>
+            </div>
             <div class="navbar-content">
                 <ul class="pc-navbar">
                     <li class="pc-item pc-caption"><label>Gestión</label></li>
-                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-chart-bar"></i></span><span class="pc-mtext">Resumen</span></a></li>
+                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-chart-bar"></i></span><span class="pc-mtext">Dashboard</span></a></li>
+                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-users"></i></span><span class="pc-mtext">Alumnos</span></a></li>
+                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-cash"></i></span><span class="pc-mtext">Cobranza</span></a></li>
+                    <li class="pc-item pc-caption"><label>Otros</label></li>
                     <li class="pc-item"><a href="../../login.html" class="pc-link"><span class="pc-micon"><i class="ti ti-logout"></i></span><span class="pc-mtext">Cerrar Sesión</span></a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="pc-container"><div class="pc-content"><h2>Panel Administrativo</h2></div></div>
+    <header class="pc-header">
+        <div class="header-wrapper">
+            <div class="me-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="ti ti-menu-2"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div class="pc-container">
+        <div class="pc-content">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="card bg-grd-primary order-card">
+                        <div class="card-body text-center">
+                            <h6 class="text-white">Total Inscritos</h6>
+                            <h2 class="text-white">2,450</h2>
+                            <i class="ti ti-user-plus f-30"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-grd-success order-card">
+                        <div class="card-body text-center">
+                            <h6 class="text-white">Recaudación</h6>
+                            <h2 class="text-white">$1.2M</h2>
+                            <i class="ti ti-currency-dollar f-30"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-grd-danger order-card">
+                        <div class="card-body text-center">
+                            <h6 class="text-white">Morosidad</h6>
+                            <h2 class="text-white">4.2%</h2>
+                            <i class="ti ti-alert-circle f-30"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card bg-grd-info order-card">
+                        <div class="card-body text-center">
+                            <h6 class="text-white">Becas</h6>
+                            <h2 class="text-white">15%</h2>
+                            <i class="ti ti-school f-30"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header"><h5>Alertas del Sistema</h5></div>
+                        <div class="card-body">
+                            <div class="alert alert-warning"><strong>Atención:</strong> 15 alumnos pendientes de entrega de documentos.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="../../assets/js/plugins/popper.min.js"></script>
     <script src="../../assets/js/plugins/bootstrap.min.js"></script>
     <script src="../../assets/js/pcoded.js"></script>
