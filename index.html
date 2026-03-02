@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>Colegio Anáhuac | Educación con Objetivo de Vida</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="icon" href="assets/images/ColegioAnahuac.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/fonts/phosphor/regular/style.css" />
+    <link rel="stylesheet" href="assets/fonts/tabler-icons.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" id="main-style-link" />
+    <link rel="stylesheet" href="assets/css/style-preset.css" />
+    
+    <style>
+        :root {
+            --anahuac-orange: #ff6b00;
+            --anahuac-blue: #002d5a;
+        }
+        .navbar-main { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 15px 0; position: sticky; top: 0; z-index: 1000; }
+        .logo-main { max-height: 70px; }
+        .hero-section { background: linear-gradient(rgba(0,45,90,0.8), rgba(0,45,90,0.8)), url('https://images.unsplash.com/photo-1523050853064-8931a012745a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; padding: 100px 0; color: #fff; text-align: center; }
+        .btn-portal { background: var(--anahuac-orange); color: #fff; border-radius: 30px; padding: 10px 25px; font-weight: 600; border: none; transition: 0.3s; }
+        .btn-portal:hover { background: #e65c00; color: #fff; transform: translateY(-2px); }
+        .section-title { color: var(--anahuac-blue); font-weight: 700; margin-bottom: 40px; text-align: center; }
+        .card-oferta { border: none; transition: 0.3s; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .card-oferta:hover { transform: translateY(-10px); }
+        .footer { background: var(--anahuac-blue); color: #fff; padding: 50px 0; margin-top: 50px; }
+    </style>
+</head>
+
+<body>
+    <!-- [ Navigation ] -->
+    <nav class="navbar-main">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="index.html">
+                <img src="assets/images/ColegioAnahuac.png" alt="logo" class="logo-main" />
+            </a>
+            <div class="d-none d-md-block">
+                <ul class="list-inline mb-0">
+                    <li class="list-inline-item mx-3"><a href="#" class="text-dark fw-bold text-decoration-none">Inicio</a></li>
+                    <li class="list-inline-item mx-3"><a href="#" class="text-dark fw-bold text-decoration-none">Oferta Educativa</a></li>
+                    <li class="list-inline-item mx-3"><a href="#" class="text-dark fw-bold text-decoration-none">Planteles</a></li>
+                    <li class="list-inline-item mx-3"><a href="login.html" class="btn btn-portal shadow-sm">Portal Escolar <i class="ti ti-login ms-1"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- [ Hero ] -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-3 fw-bold mb-3">Colegio Anáhuac</h1>
+            <p class="lead mb-5">Educación con Objetivo de Vida. Formando líderes con valores humanistas.</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#" class="btn btn-light btn-lg px-4">Conoce más</a>
+                <a href="login.html" class="btn btn-portal btn-lg px-4">Ingresar al Portal</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- [ Oferta ] -->
+    <section class="container mt-5 pt-5">
+        <h2 class="section-title">Nuestra Oferta Educativa</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card card-oferta h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="ti ti-school f-40 text-warning mb-3"></i>
+                        <h4>Preparatoria</h4>
+                        <p class="text-muted">Un modelo bivalente que te prepara para el éxito universitario y profesional.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-oferta h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="ti ti-certificate f-40 text-primary mb-3"></i>
+                        <h4>Licenciatura</h4>
+                        <p class="text-muted">Carreras innovadoras con un fuerte enfoque en la práctica clínica y empresarial.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-oferta h-100 text-center p-4">
+                    <div class="card-body">
+                        <i class="ti ti-award f-40 text-success mb-3"></i>
+                        <h4>Posgrados</h4>
+                        <p class="text-muted">Especializaciones y maestrías diseñadas para los retos del mercado global.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [ Planteles ] -->
+    <section class="bg-light mt-5 py-5">
+        <div class="container">
+            <h2 class="section-title">Nuestros Planteles</h2>
+            <div class="row text-center">
+                <div class="col-md-4 mb-4">
+                    <div class="p-3">
+                        <i class="ti ti-map-pin f-30 text-danger mb-2"></i>
+                        <h5 class="fw-bold">Pachuca</h5>
+                        <p class="small text-muted">Carretera Providencia-Pachuquilla 294, Sta Rita.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="p-3">
+                        <i class="ti ti-map-pin f-30 text-danger mb-2"></i>
+                        <h5 class="fw-bold">Santa Mónica</h5>
+                        <p class="small text-muted">Calle Viveros de Asis Num. Ext. 2, Tlalnepantla.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="p-3">
+                        <i class="ti ti-map-pin f-30 text-danger mb-2"></i>
+                        <h5 class="fw-bold">Tulancingo</h5>
+                        <p class="small text-muted">Niccolo Paganini 303, Jardines del Sur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- [ Footer ] -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <img src="assets/images/ColegioAnahuac.png" alt="logo white" class="logo-main mb-3 bg-white p-2 rounded" />
+                    <p class="small opacity-75">Formamos líderes comprometidos con su entorno a través de un modelo educativo integral y humanista.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white mb-4">Enlaces Rápidos</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="login.html" class="text-white-50 text-decoration-none mb-2 d-block">Portal Alumnos</a></li>
+                        <li><a href="login.html" class="text-white-50 text-decoration-none mb-2 d-block">Portal Docentes</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none mb-2 d-block">Admisiones</a></li>
+                        <li><a href="#" class="text-white-50 text-decoration-none mb-2 d-block">Aviso de Privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-white mb-4">Contacto</h5>
+                    <p class="small text-white-50 mb-1"><i class="ti ti-mail me-2"></i> informes@colegioanahuacsc.edu.mx</p>
+                    <p class="small text-white-50"><i class="ti ti-phone me-2"></i> 771 116 9794 (Pachuca)</p>
+                </div>
+            </div>
+            <hr class="mt-4 border-light opacity-25">
+            <div class="text-center mt-4">
+                <p class="mb-0 small text-white-50">&copy; 2026 Colegio Anáhuac. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/plugins/popper.min.js"></script>
+    <script src="assets/js/plugins/bootstrap.min.js"></script>
+</body>
+</html>
