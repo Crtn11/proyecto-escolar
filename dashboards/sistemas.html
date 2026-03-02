@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>Dashboard IT | Portal Escolar Anáhuac</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="../assets/images/favicon.svg" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/fonts/phosphor/regular/style.css" />
+    <link rel="stylesheet" href="../assets/fonts/tabler-icons.min.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" id="main-style-link" />
+    <link rel="stylesheet" href="../assets/css/style-preset.css" />
+</head>
+<body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <nav class="pc-sidebar">
+        <div class="navbar-wrapper">
+            <div class="m-header">
+                <a href="#" class="b-brand text-primary">
+                    <img src="../assets/images/logo-dark.svg" alt="logo" class="logo-lg" />
+                </a>
+            </div>
+            <div class="navbar-content">
+                <ul class="pc-navbar">
+                    <li class="pc-item pc-caption"><label>Infraestructura</label></li>
+                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-server"></i></span><span class="pc-mtext">Estado del Servidor</span></a></li>
+                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-database"></i></span><span class="pc-mtext">Base de Datos</span></a></li>
+                    
+                    <li class="pc-item pc-caption"><label>Seguridad</label></li>
+                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-lock"></i></span><span class="pc-mtext">Roles y Permisos</span></a></li>
+                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-history"></i></span><span class="pc-mtext">Logs de Auditoría</span></a></li>
+                    
+                    <li class="pc-item pc-caption"><label>Configuración</label></li>
+                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-settings"></i></span><span class="pc-mtext">Ajustes Globales</span></a></li>
+                    <li class="pc-item"><a href="../login.html" class="pc-link"><span class="pc-micon"><i class="ti ti-logout"></i></span><span class="pc-mtext">Cerrar Sesión</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pc-header">
+        <div class="header-wrapper">
+            <div class="me-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="ti ti-menu-2"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <div class="pc-container">
+        <div class="pc-content">
+            <div class="row">
+                <div class="col-md-6 col-xl-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>CPU Usage</h6>
+                            <h2>24%</h2>
+                            <div class="progress m-t-10" style="height:7px;">
+                                <div class="progress-bar bg-primary" style="width: 24%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>RAM Usage</h6>
+                            <h2>4.2 GB</h2>
+                            <div class="progress m-t-10" style="height:7px;">
+                                <div class="progress-bar bg-success" style="width: 45%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Uptime</h6>
+                            <h2>156d 4h</h2>
+                            <p class="text-muted m-b-0">Last restart: 5 months ago</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h6>Active Users</h6>
+                            <h2>854</h2>
+                            <p class="text-success m-b-0"><i class="ti ti-arrow-up"></i> 12% increase</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Servidores y Servicios</h5>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Web Server (Nginx) <span class="badge bg-success">Online</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Database (PostgreSQL) <span class="badge bg-success">Online</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Cache Server (Redis) <span class="badge bg-danger">Offline</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center">
+                                    Mail Server (SMTP) <span class="badge bg-success">Online</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/plugins/popper.min.js"></script>
+    <script src="../assets/js/plugins/bootstrap.min.js"></script>
+    <script src="../assets/js/pcoded.js"></script>
+</body>
+</html>
