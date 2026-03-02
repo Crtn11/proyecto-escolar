@@ -5,271 +5,152 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
     <link rel="icon" href="../../assets/images/IconoColegioAnahuac.png" type="image/png" />
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../../assets/fonts/phosphor/regular/style.css" />
     <link rel="stylesheet" href="../../assets/fonts/tabler-icons.min.css" />
     <link rel="stylesheet" href="../../assets/css/style.css" id="main-style-link" />
     <link rel="stylesheet" href="../../assets/css/style-preset.css" />
-    
+
+    <link rel="stylesheet" href="../../assets/css/custom-typography.css" />
     <style>
         .logo-lg { max-height: 55px; width: auto; }
         .pc-sidebar .m-header { padding: 10px 20px; height: 80px; display: flex; align-items: center; }
+        .pc-header .user-avtar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ff6b00; }
+        .pc-header .user-name { font-weight: 600; margin-left: 10px; display: inline-block; vertical-align: middle; }
         
-        /* Estilos Línea de Tiempo Diaria */
         .timeline-item { position: relative; padding-left: 40px; margin-bottom: 20px; border-left: 2px solid #e2e5e8; }
         .timeline-item::before { content: ""; position: absolute; left: -9px; top: 0; width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 3px solid #ff6b00; }
         .timeline-time { font-weight: 700; color: #002d5a; min-width: 100px; display: inline-block; }
         .timeline-content { background: #f8f9fa; padding: 15px; border-radius: 8px; border: 1px solid #eee; margin-top: 5px; }
-        .receso { background: #fff3cd; border-color: #ffeeba; }
-
-        /* Estilos Vista Semanal */
+        .receso { background: #fff3cd !important; border-color: #ffeeba !important; }
         .current-day-col { background-color: rgba(255, 107, 0, 0.05) !important; border: 2px solid #ff6b00 !important; }
         .table-horario td { vertical-align: middle; height: 80px; font-size: 0.85rem; }
         .hidden { display: none; }
+        @media (max-width: 1024px) {
+            .pc-header { display: flex !important; top: 0 !important; position: fixed !important; background: #fff !important; z-index: 1025 !important; }
+            .pc-container { margin-top: 70px !important; }
+        }
     </style>
 </head>
-
 <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
-    <!-- [ Sidebar ] -->
+    <div class="loader-bg"><div class="loader-track"><div class="loader-fill"></div></div></div>
     <nav class="pc-sidebar">
         <div class="navbar-wrapper">
-            <div class="m-header">
-                <a href="index.html" class="b-brand">
-                    <img src="../../assets/images/LogoColegioAnahuac.png" alt="logo" class="logo-lg" />
-                </a>
-            </div>
+            <div class="m-header"><a href="index.html" class="b-brand"><img src="../../assets/images/LogoColegioAnahuac.png" alt="logo" class="logo-lg" /></a></div>
             <div class="navbar-content">
                 <ul class="pc-navbar">
                     <li class="pc-item pc-caption"><label>Académico</label></li>
                     <li class="pc-item"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
                     <li class="pc-item"><a href="materias.html" class="pc-link"><span class="pc-micon"><i class="ti ti-book"></i></span><span class="pc-mtext">Mis Materias</span></a></li>
                     <li class="pc-item active"><a href="horarios.html" class="pc-link"><span class="pc-micon"><i class="ti ti-calendar"></i></span><span class="pc-mtext">Horarios</span></a></li>
-                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Calificaciones</span></a></li>
+                    <li class="pc-item"><a href="kardex.html" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Kardex Académico</span></a></li>
+                    <li class="pc-item"><a href="evaluacion.html" class="pc-link"><span class="pc-micon"><i class="ti ti-star"></i></span><span class="pc-mtext">Evaluación Docente</span></a></li>
+                    <li class="pc-item pc-caption"><label>Administrativo</label></li>
+                    <li class="pc-item"><a href="finanzas.html" class="pc-link"><span class="pc-micon"><i class="ti ti-credit-card"></i></span><span class="pc-mtext">Estado de Cuenta</span></a></li>
+                    <li class="pc-item pc-caption"><label>Soporte</label></li>
+                    <li class="pc-item"><a href="ayuda.html" class="pc-link"><span class="pc-micon"><i class="ti ti-help"></i></span><span class="pc-mtext">Manuales y Ayuda</span></a></li>
                     <li class="pc-item pc-caption"><label>Otros</label></li>
                     <li class="pc-item"><a href="../../login.html" class="pc-link"><span class="pc-micon"><i class="ti ti-logout"></i></span><span class="pc-mtext">Cerrar Sesión</span></a></li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <!-- [ Header ] -->
     <header class="pc-header">
         <div class="header-wrapper">
             <div class="me-auto pc-mob-drp">
                 <ul class="list-unstyled">
                     <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="ti ti-menu-2"></i></a></li>
+                    <li class="pc-h-item pc-sidebar-popup"><a href="#" class="pc-head-link ms-0" id="mobile-collapse"><i class="ti ti-menu-2" style="color: #ff6b00; font-size: 24px;"></i></a></li>
                 </ul>
             </div>
-            <div class="ms-auto">
-                <ul class="list-unstyled">
-                    <li class="dropdown pc-h-item">
-                        <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button">
-                            <img src="../../assets/images/user/avatar-1.png" alt="user-image" class="user-avtar" />
-                            <span><span class="user-name" id="userName">Cargando...</span></span>
-                        </a>
-                    </li>
-                </ul>
+            <div class="ms-auto d-flex align-items-center">
+                <img src="../../assets/images/LogoColegioAnahuac.png" class="d-md-none me-2" style="max-height: 30px;" />
+                <div class="d-flex align-items-center">
+                    <img src="../../assets/images/user/avatar-1.png" alt="user-image" class="user-avtar" />
+                    <span class="user-name d-none d-sm-inline-block" id="userName">Alumno</span>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- [ Main Content ] -->
     <div class="pc-container">
         <div class="pc-content">
-            <div class="page-header">
-                <div class="page-block">
-                    <div class="row align-items-center">
-                        <div class="col-md-12">
-                            <div class="page-header-title d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h2 class="mb-0" id="viewTitle">Horario del Día</h2>
-                                    <p class="text-muted mb-0">Grupo: 102-A | <span id="currentDayText">Lunes</span></p>
-                                </div>
-                                <button class="btn btn-primary" id="toggleViewBtn" onclick="toggleView()">
-                                    <i class="ti ti-calendar-stats me-1"></i> Ver Vista Semanal
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <div class="page-header"><div class="page-block"><div class="row align-items-center"><div class="col-md-12 d-flex justify-content-between"><div><h2 class="mb-0" id="viewTitle">Horario del Día</h2><p class="text-muted mb-0">Grupo: 102-A | <span id="currentDayText">Lunes</span></p></div><button class="btn btn-primary" id="toggleViewBtn" onclick="toggleView()">Ver Vista Semanal</button></div></div></div></div>
+            
             <!-- VISTA DIARIA -->
             <div id="dailyView" class="row">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="timeline-item">
-                                <span class="timeline-time">07:00 - 08:00</span>
-                                <div class="timeline-content">
-                                    <h6 class="mb-0">Entrada / Preparación</h6>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <span class="timeline-time">08:00 - 08:50</span>
-                                <div class="timeline-content">
-                                    <h6 class="mb-1 text-primary">Matemáticas Avanzadas</h6>
-                                    <small>Prof. Dr. Armando Casas | Salón A12</small>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <span class="timeline-time">08:50 - 10:30</span>
-                                <div class="timeline-content">
-                                    <h6 class="mb-1 text-success">Física II</h6>
-                                    <small>Prof. Ing. Nikola Tesla | Lab Físicas</small>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <span class="timeline-time">10:30 - 11:00</span>
-                                <div class="timeline-content receso">
-                                    <h6 class="mb-0 text-warning"><i class="ti ti-coffee me-1"></i>RECESO</h6>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <span class="timeline-time">11:00 - 12:40</span>
-                                <div class="timeline-content">
-                                    <h6 class="mb-1 text-info">Programación III</h6>
-                                    <small>Prof. Ing. Elon Musk | Lab C1</small>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <span class="timeline-time">12:40 - 14:20</span>
-                                <div class="timeline-content">
-                                    <h6 class="mb-1 text-secondary">Ética Profesional</h6>
-                                    <small>Prof. Lic. Sócrates | Aula B4</small>
-                                </div>
-                            </div>
-                            <div class="timeline-item">
-                                <span class="timeline-time">14:20 - 16:00</span>
-                                <div class="timeline-content">
-                                    <h6 class="mb-1 text-muted">Tutoría / Clubes</h6>
-                                    <small>Actividades Extraescolares</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-md-12"><div class="card"><div class="card-body">
+                    <div class="timeline-item"><span class="timeline-time">08:00 - 08:50</span><div class="timeline-content"><h6>Matemáticas Avanzadas</h6><small>Prof. Dr. Armando Casas | Salón A12</small></div></div>
+                    <div class="timeline-item"><span class="timeline-time">08:50 - 10:30</span><div class="timeline-content"><h6>Física II</h6><small>Prof. Ing. Nikola Tesla | Lab Físicas</small></div></div>
+                    <div class="timeline-item"><span class="timeline-time">10:30 - 11:00</span><div class="timeline-content receso"><h6><i class="ti ti-coffee me-1"></i>RECESO</h6></div></div>
+                    <div class="timeline-item"><span class="timeline-time">11:00 - 12:40</span><div class="timeline-content"><h6>Programación III</h6><small>Prof. Ing. Elon Musk | Lab C1</small></div></div>
+                    <div class="timeline-item"><span class="timeline-time">12:40 - 14:20</span><div class="timeline-content"><h6>Ética Profesional</h6><small>Prof. Lic. Sócrates | Aula B4</small></div></div>
+                </div></div></div>
             </div>
 
             <!-- VISTA SEMANAL -->
             <div id="weeklyView" class="row hidden">
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table table-bordered text-center mb-0 table-horario">
-                                    <thead class="bg-light">
-                                        <tr>
-                                            <th>Hora</th>
-                                            <th id="col-1">Lunes</th>
-                                            <th id="col-2">Martes</th>
-                                            <th id="col-3">Miércoles</th>
-                                            <th id="col-4">Jueves</th>
-                                            <th id="col-5">Viernes</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>08:00</td>
-                                            <td>Matemáticas</td>
-                                            <td>Inglés</td>
-                                            <td>Matemáticas</td>
-                                            <td>Historia</td>
-                                            <td>Matemáticas</td>
-                                        </tr>
-                                        <tr>
-                                            <td>10:00</td>
-                                            <td>Física II</td>
-                                            <td>Programación</td>
-                                            <td>Física II</td>
-                                            <td>Programación</td>
-                                            <td>Física II</td>
-                                        </tr>
-                                        <tr class="receso">
-                                            <td>10:30</td>
-                                            <td colspan="5">RECESO</td>
-                                        </tr>
-                                        <tr>
-                                            <td>11:00</td>
-                                            <td>Programación</td>
-                                            <td>Deportes</td>
-                                            <td>Ética</td>
-                                            <td>Deportes</td>
-                                            <td>Programación</td>
-                                        </tr>
-                                        <tr>
-                                            <td>13:00</td>
-                                            <td>Ética</td>
-                                            <td>Química</td>
-                                            <td>Química</td>
-                                            <td>Química</td>
-                                            <td>Ética</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-md-12"><div class="card"><div class="card-body p-0"><div class="table-responsive">
+                    <table class="table table-bordered text-center mb-0 table-horario">
+                        <thead class="bg-light"><tr><th>Hora</th><th id="col-1">Lunes</th><th id="col-2">Martes</th><th id="col-3">Miércoles</th><th id="col-4">Jueves</th><th id="col-5">Viernes</th></tr></thead>
+                        <tbody>
+                            <tr><td>08:00</td><td>Matemáticas</td><td>Inglés</td><td>Matemáticas</td><td>Historia</td><td>Matemáticas</td></tr>
+                            <tr><td>10:00</td><td>Física II</td><td>Programación</td><td>Física II</td><td>Programación</td><td>Física II</td></tr>
+                            <tr class="receso"><td>10:30</td><td colspan="5">RECESO</td></tr>
+                            <tr><td>11:00</td><td>Programación</td><td>Deportes</td><td>Ética</td><td>Deportes</td><td>Programación</td></tr>
+                            <tr><td>13:00</td><td>Ética</td><td>Química</td><td>Química</td><td>Química</td><td>Ética</td></tr>
+                        </tbody>
+                    </table>
+                </div></div></div></div>
             </div>
-
         </div>
     </div>
 
     <script src="../../assets/js/plugins/popper.min.js"></script>
+    <script src="../../assets/js/plugins/simplebar.min.js"></script>
     <script src="../../assets/js/plugins/bootstrap.min.js"></script>
-    <script src="../../assets/js/pcoded.js"></script>
-    
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/theme.js"></script>
+
     <script>
         document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Alumno Anáhuac';
-        
         let isWeekly = false;
-
+        
         function toggleView() {
             const daily = document.getElementById('dailyView');
             const weekly = document.getElementById('weeklyView');
             const btn = document.getElementById('toggleViewBtn');
             const title = document.getElementById('viewTitle');
-
-            if (!isWeekly) {
-                daily.classList.add('hidden');
-                weekly.classList.remove('hidden');
-                btn.innerHTML = '<i class="ti ti-calendar me-1"></i> Ver Horario del Día';
-                title.innerText = 'Horario Semanal';
+            if (!isWeekly) { 
+                daily.classList.add('hidden'); 
+                weekly.classList.remove('hidden'); 
+                btn.innerText = 'Ver Horario del Día'; 
+                title.innerText = 'Horario Semanal'; 
                 highlightCurrentDay();
-            } else {
-                daily.classList.remove('hidden');
-                weekly.classList.add('hidden');
-                btn.innerHTML = '<i class="ti ti-calendar-stats me-1"></i> Ver Vista Semanal';
-                title.innerText = 'Horario del Día';
+            } else { 
+                daily.classList.remove('hidden'); 
+                weekly.classList.add('hidden'); 
+                btn.innerText = 'Ver Vista Semanal'; 
+                title.innerText = 'Horario del Día'; 
             }
             isWeekly = !isWeekly;
         }
 
         function highlightCurrentDay() {
-            const now = new Date();
-            const day = now.getDay(); // 0 Domingo, 1 Lunes...
+            const now = new Date(); const day = now.getDay();
             if (day >= 1 && day <= 5) {
                 const col = document.getElementById('col-' + day);
-                if (col) {
-                    // Resaltar la cabecera
+                if (col) { 
                     col.classList.add('bg-primary', 'text-white');
-                    // Resaltar todas las celdas de esa columna
                     const rows = document.querySelectorAll('.table-horario tr');
-                    rows.forEach(row => {
-                        const cell = row.children[day];
-                        if (cell) cell.classList.add('current-day-col');
-                    });
+                    rows.forEach(row => { const cell = row.children[day]; if (cell) cell.classList.add('current-day-col'); });
                 }
             }
-            
             const daysNames = ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'];
-            document.getElementById('currentDayText').innerText = daysNames[day];
+            const dayText = document.getElementById('currentDayText');
+            if(dayText) dayText.innerText = daysNames[day];
         }
-
-        // Detectar día al cargar
         highlightCurrentDay();
     </script>
 </body>

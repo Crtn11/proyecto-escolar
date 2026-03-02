@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <title>Dashboard IT | Colegio Anáhuac</title>
+    <title>Mis Grupos | Colegio Anáhuac</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,6 +18,8 @@
         .pc-sidebar .m-header { padding: 10px 20px; height: 80px; display: flex; align-items: center; }
         .pc-header .user-avtar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ff6b00; }
         .pc-header .user-name { font-weight: 600; margin-left: 10px; display: inline-block; vertical-align: middle; }
+        .group-card { border-top: 4px solid #ff6b00; transition: 0.3s; }
+        .group-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
         @media (max-width: 1024px) {
             .pc-header { display: flex !important; top: 0 !important; position: fixed !important; background: #fff !important; z-index: 1025 !important; }
             .pc-container { margin-top: 70px !important; }
@@ -31,10 +33,13 @@
             <div class="m-header"><a href="index.html" class="b-brand"><img src="../../assets/images/LogoColegioAnahuac.png" alt="logo" class="logo-lg" /></a></div>
             <div class="navbar-content">
                 <ul class="pc-navbar">
-                    <li class="pc-item pc-caption"><label>Administración IT</label></li>
-                    <li class="pc-item active"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard IT</span></a></li>
-                    <li class="pc-item"><a href="logs.html" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Logs de Auditoría</span></a></li>
-                    <li class="pc-item"><a href="chatbot.html" class="pc-link"><span class="pc-micon"><i class="ti ti-message-chatbot"></i></span><span class="pc-mtext">Configuración IA</span></a></li>
+                    <li class="pc-item pc-caption"><label>Docencia</label></li>
+                    <li class="pc-item"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
+                    <li class="pc-item"><a href="captura-notas.html" class="pc-link"><span class="pc-micon"><i class="ti ti-edit"></i></span><span class="pc-mtext">Captura de Notas</span></a></li>
+                    <li class="pc-item"><a href="planeacion.html" class="pc-link"><span class="pc-micon"><i class="ti ti-notebook"></i></span><span class="pc-mtext">Planeación y Temarios</span></a></li>
+                    <li class="pc-item active"><a href="grupos.html" class="pc-link"><span class="pc-micon"><i class="ti ti-users"></i></span><span class="pc-mtext">Mis Grupos</span></a></li>
+                    <li class="pc-item pc-caption"><label>Personal</label></li>
+                    <li class="pc-item"><a href="perfil.html" class="pc-link"><span class="pc-micon"><i class="ti ti-user-circle"></i></span><span class="pc-mtext">Mi Perfil / Expediente</span></a></li>
                     <li class="pc-item pc-caption"><label>Soporte</label></li>
                     <li class="pc-item"><a href="ayuda.html" class="pc-link"><span class="pc-micon"><i class="ti ti-help"></i></span><span class="pc-mtext">Manuales y Ayuda</span></a></li>
                     <li class="pc-item pc-caption"><label>Otros</label></li>
@@ -54,37 +59,24 @@
             <div class="ms-auto d-flex align-items-center">
                 <img src="../../assets/images/LogoColegioAnahuac.png" class="d-md-none me-2" style="max-height: 30px;" />
                 <div class="d-flex align-items-center">
-                    <img src="../../assets/images/user/avatar-1.png" alt="user-image" class="user-avtar" />
-                    <span class="user-name d-none d-sm-inline-block" id="userName">Sistemas</span>
+                    <img src="../../assets/images/user/avatar-2.png" alt="user-image" class="user-avtar" />
+                    <span class="user-name d-none d-sm-inline-block" id="userName">Profesor</span>
                 </div>
             </div>
         </div>
     </header>
+
     <div class="pc-container">
         <div class="pc-content">
-            <div class="page-header"><div class="page-block"><div class="row align-items-center"><div class="col-md-12"><h2 class="mb-0">Panel de Control de Sistemas</h2><p class="text-muted">Monitoreo de Infraestructura y Servicios Críticos</p></div></div></div></div>
+            <div class="page-header"><div class="page-block"><div class="row align-items-center"><div class="col-md-12"><h2 class="mb-0">Mis Grupos Asignados</h2></div></div></div></div>
             <div class="row">
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-success order-card"><div class="card-body"><h6>Servidores Core</h6><h2 class="text-end"><i class="ti ti-server float-start"></i>Online</h2><p class="m-b-0 small">Uptime: 99.9%</p></div></div></div>
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-primary order-card"><div class="card-body"><h6>Carga de CPU</h6><h2 class="text-end"><i class="ti ti-cpu float-start"></i>12%</h2><p class="m-b-0 small">4 Nodos Activos</p></div></div></div>
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-info order-card"><div class="card-body"><h6>Memoria RAM</h6><h2 class="text-end"><i class="ti ti-device-sdcard float-start"></i>45%</h2><p class="m-b-0 small">En uso: 14.4 GB</p></div></div></div>
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-danger order-card"><div class="card-body"><h6>Storage DB</h6><h2 class="text-end"><i class="ti ti-database float-start"></i>68%</h2><p class="m-b-0 small">Libre: 120 GB</p></div></div></div>
-
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header"><h5>Estado de Microservicios</h5></div>
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0">
-                                    <thead><tr><th>Servicio</th><th>Endpoint</th><th>Latencia</th><th>Estatus</th></tr></thead>
-                                    <tbody>
-                                        <tr><td>API Portal Alumnos</td><td>/api/v1/students</td><td>45ms</td><td><span class="badge bg-light-success text-success">Operativo</span></td></tr>
-                                        <tr><td>Servicio de Autenticación</td><td>/auth/2fa</td><td>12ms</td><td><span class="badge bg-light-success text-success">Operativo</span></td></tr>
-                                        <tr><td>Motor de Pagos</td><td>/finance/gate</td><td>120ms</td><td><span class="badge bg-light-warning text-warning">Lento</span></td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+                <div class="col-md-12 mb-4"><div class="card bg-light-primary border-primary"><div class="card-body d-flex justify-content-around text-center"><div><h6>Grupos</h6><h4>4</h4></div><div class="vr"></div><div><h6>Horas</h6><h4>28 hrs</h4></div><div class="vr"></div><div><h6>Alumnos</h6><h4>124</h4></div></div></div></div>
+                <div class="col-md-6 col-xl-4">
+                    <div class="card group-card"><div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-3"><div><h5 class="mb-0">IS-701</h5><small class="text-muted">Ingeniería de Software</small></div><span class="badge bg-light-success text-success">32 Alumnos</span></div>
+                        <ul class="list-unstyled small mb-4"><li><i class="ti ti-calendar me-2"></i>L-M-V</li><li><i class="ti ti-clock me-2"></i>08:00 - 10:00</li></ul>
+                        <div class="d-grid"><button class="btn btn-outline-primary btn-sm">Ver Lista</button></div>
+                    </div></div>
                 </div>
             </div>
         </div>
@@ -95,6 +87,6 @@
     <script src="../../assets/js/script.js"></script>
     <script src="../../assets/js/theme.js"></script>
 
-    <script>document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Sistemas Anáhuac';</script>
+    <script>document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Profesor Anáhuac';</script>
 </body>
 </html>

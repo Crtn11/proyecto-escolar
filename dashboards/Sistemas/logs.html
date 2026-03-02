@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <title>Dashboard IT | Colegio Anáhuac</title>
+    <title>Logs de Auditoría | Colegio Anáhuac</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,8 +32,8 @@
             <div class="navbar-content">
                 <ul class="pc-navbar">
                     <li class="pc-item pc-caption"><label>Administración IT</label></li>
-                    <li class="pc-item active"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard IT</span></a></li>
-                    <li class="pc-item"><a href="logs.html" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Logs de Auditoría</span></a></li>
+                    <li class="pc-item"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard IT</span></a></li>
+                    <li class="pc-item active"><a href="logs.html" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Logs de Auditoría</span></a></li>
                     <li class="pc-item"><a href="chatbot.html" class="pc-link"><span class="pc-micon"><i class="ti ti-message-chatbot"></i></span><span class="pc-mtext">Configuración IA</span></a></li>
                     <li class="pc-item pc-caption"><label>Soporte</label></li>
                     <li class="pc-item"><a href="ayuda.html" class="pc-link"><span class="pc-micon"><i class="ti ti-help"></i></span><span class="pc-mtext">Manuales y Ayuda</span></a></li>
@@ -60,26 +60,33 @@
             </div>
         </div>
     </header>
+
     <div class="pc-container">
         <div class="pc-content">
-            <div class="page-header"><div class="page-block"><div class="row align-items-center"><div class="col-md-12"><h2 class="mb-0">Panel de Control de Sistemas</h2><p class="text-muted">Monitoreo de Infraestructura y Servicios Críticos</p></div></div></div></div>
+            <div class="page-header"><div class="page-block"><div class="row align-items-center"><div class="col-md-12"><h2 class="mb-0">Logs de Auditoría y Seguridad</h2><p class="text-muted">Monitoreo de accesos y modificaciones en tiempo real.</p></div></div></div></div>
+            
             <div class="row">
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-success order-card"><div class="card-body"><h6>Servidores Core</h6><h2 class="text-end"><i class="ti ti-server float-start"></i>Online</h2><p class="m-b-0 small">Uptime: 99.9%</p></div></div></div>
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-primary order-card"><div class="card-body"><h6>Carga de CPU</h6><h2 class="text-end"><i class="ti ti-cpu float-start"></i>12%</h2><p class="m-b-0 small">4 Nodos Activos</p></div></div></div>
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-info order-card"><div class="card-body"><h6>Memoria RAM</h6><h2 class="text-end"><i class="ti ti-device-sdcard float-start"></i>45%</h2><p class="m-b-0 small">En uso: 14.4 GB</p></div></div></div>
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-danger order-card"><div class="card-body"><h6>Storage DB</h6><h2 class="text-end"><i class="ti ti-database float-start"></i>68%</h2><p class="m-b-0 small">Libre: 120 GB</p></div></div></div>
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body d-flex gap-3">
+                            <input type="text" class="form-control" placeholder="Filtrar por usuario o IP...">
+                            <select class="form-select" style="width: 200px;"><option>Todos los eventos</option><option>Login</option><option>Error 404</option><option>Modificación</option></select>
+                            <button class="btn btn-primary">Aplicar Filtros</button>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="col-md-12">
                     <div class="card">
-                        <div class="card-header"><h5>Estado de Microservicios</h5></div>
+                        <div class="card-header d-flex justify-content-between"><h5>Registros Recientes</h5><button class="btn btn-sm btn-outline-secondary">Exportar CSV</button></div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table table-hover mb-0">
-                                    <thead><tr><th>Servicio</th><th>Endpoint</th><th>Latencia</th><th>Estatus</th></tr></thead>
+                                    <thead><tr><th>Timestamp</th><th>Usuario</th><th>Evento</th><th>Módulo</th><th>IP</th></tr></thead>
                                     <tbody>
-                                        <tr><td>API Portal Alumnos</td><td>/api/v1/students</td><td>45ms</td><td><span class="badge bg-light-success text-success">Operativo</span></td></tr>
-                                        <tr><td>Servicio de Autenticación</td><td>/auth/2fa</td><td>12ms</td><td><span class="badge bg-light-success text-success">Operativo</span></td></tr>
-                                        <tr><td>Motor de Pagos</td><td>/finance/gate</td><td>120ms</td><td><span class="badge bg-light-warning text-warning">Lento</span></td></tr>
+                                        <tr><td>02/03/2026 14:20:15</td><td>admin@anahuac.mx</td><td><span class="badge bg-light-primary text-primary">Login Exitoso</span></td><td>Auth</td><td>189.215.12.4</td></tr>
+                                        <tr><td>02/03/2026 14:18:40</td><td>profe.casas@anahuac.mx</td><td><span class="badge bg-light-success text-success">Captura Notas</span></td><td>Docencia</td><td>189.215.12.10</td></tr>
+                                        <tr><td>02/03/2026 14:15:22</td><td>alumno.test@anahuac.mx</td><td><span class="badge bg-light-danger text-danger">Intento Fallido</span></td><td>Auth</td><td>201.145.8.99</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -95,6 +102,6 @@
     <script src="../../assets/js/script.js"></script>
     <script src="../../assets/js/theme.js"></script>
 
-    <script>document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Sistemas Anáhuac';</script>
+    <script>document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'IT Anáhuac';</script>
 </body>
 </html>

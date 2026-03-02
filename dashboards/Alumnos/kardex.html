@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <title>Mis Materias | Colegio Anáhuac</title>
+    <title>Kardex Académico | Colegio Anáhuac</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -16,11 +16,13 @@
     <style>
         .logo-lg { max-height: 55px; width: auto; }
         .pc-sidebar .m-header { padding: 10px 20px; height: 80px; display: flex; align-items: center; }
+        
+        /* Ajustes para el perfil en el Header */
         .pc-header .user-avtar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ff6b00; }
         .pc-header .user-name { font-weight: 600; margin-left: 10px; display: inline-block; vertical-align: middle; }
-        .subject-card { transition: 0.3s; border-left: 5px solid transparent; cursor: pointer; }
-        .subject-card:hover { transform: translateY(-5px); border-left-color: #ff6b00; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-        .prof-avatar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+        
+        .grade-pass { color: #28a745; font-weight: bold; }
+        .grade-fail { color: #dc3545; font-weight: bold; }
         @media (max-width: 1024px) {
             .pc-header { display: flex !important; top: 0 !important; position: fixed !important; background: #fff !important; z-index: 1025 !important; }
             .pc-container { margin-top: 70px !important; }
@@ -31,25 +33,33 @@
     <div class="loader-bg"><div class="loader-track"><div class="loader-fill"></div></div></div>
     <nav class="pc-sidebar">
         <div class="navbar-wrapper">
-            <div class="m-header"><a href="index.html" class="b-brand"><img src="../../assets/images/LogoColegioAnahuac.png" alt="logo" class="logo-lg" /></a></div>
+            <div class="m-header">
+                <a href="index.html" class="b-brand">
+                    <img src="../../assets/images/LogoColegioAnahuac.png" alt="logo" class="logo-lg" />
+                </a>
+            </div>
             <div class="navbar-content">
                 <ul class="pc-navbar">
                     <li class="pc-item pc-caption"><label>Académico</label></li>
                     <li class="pc-item"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
-                    <li class="pc-item active"><a href="materias.html" class="pc-link"><span class="pc-micon"><i class="ti ti-book"></i></span><span class="pc-mtext">Mis Materias</span></a></li>
+                    <li class="pc-item"><a href="materias.html" class="pc-link"><span class="pc-micon"><i class="ti ti-book"></i></span><span class="pc-mtext">Mis Materias</span></a></li>
                     <li class="pc-item"><a href="horarios.html" class="pc-link"><span class="pc-micon"><i class="ti ti-calendar"></i></span><span class="pc-mtext">Horarios</span></a></li>
-                    <li class="pc-item"><a href="kardex.html" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Kardex Académico</span></a></li>
+                    <li class="pc-item active"><a href="kardex.html" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Kardex Académico</span></a></li>
                     <li class="pc-item"><a href="evaluacion.html" class="pc-link"><span class="pc-micon"><i class="ti ti-star"></i></span><span class="pc-mtext">Evaluación Docente</span></a></li>
+                    
                     <li class="pc-item pc-caption"><label>Administrativo</label></li>
                     <li class="pc-item"><a href="finanzas.html" class="pc-link"><span class="pc-micon"><i class="ti ti-credit-card"></i></span><span class="pc-mtext">Estado de Cuenta</span></a></li>
+                    
                     <li class="pc-item pc-caption"><label>Soporte</label></li>
                     <li class="pc-item"><a href="ayuda.html" class="pc-link"><span class="pc-micon"><i class="ti ti-help"></i></span><span class="pc-mtext">Manuales y Ayuda</span></a></li>
+                    
                     <li class="pc-item pc-caption"><label>Otros</label></li>
                     <li class="pc-item"><a href="../../login.html" class="pc-link"><span class="pc-micon"><i class="ti ti-logout"></i></span><span class="pc-mtext">Cerrar Sesión</span></a></li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <header class="pc-header">
         <div class="header-wrapper">
             <div class="me-auto pc-mob-drp">
@@ -70,44 +80,51 @@
 
     <div class="pc-container">
         <div class="pc-content">
-            <div class="page-header"><div class="page-block"><div class="row align-items-center"><div class="col-md-12"><div class="page-header-title d-flex justify-content-between align-items-center"><h2 class="mb-0">Mis Materias</h2><span class="badge bg-light-primary border border-primary text-primary px-3 py-2">Ciclo: 2024-1</span></div></div></div></div></div>
-            <div class="row">
-                <div class="col-md-6 col-xl-4">
-                    <div class="card subject-card shadow-sm" onclick="window.location.href='detalle-materia.html'">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3"><div class="bg-light-primary p-2 rounded me-3"><i class="ti ti-math-symbols f-24 text-primary"></i></div><h5 class="mb-0">Matemáticas Avanzadas</h5></div>
-                            <div class="d-flex align-items-center mb-3"><img src="../../assets/images/user/avatar-2.png" class="prof-avatar me-2" /><div><p class="mb-0 small text-muted">Profesor:</p><h6 class="mb-0">Dr. Armando Casas</h6></div></div>
-                            <div class="d-flex justify-content-between align-items-center"><span class="badge bg-light-info">L-M-V</span><small class="text-muted">08:00 - 10:00</small></div>
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h2 class="mb-0">Kardex Académico</h2>
+                            <p class="text-muted">Historial detallado de calificaciones por ciclo.</p>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <button class="btn btn-primary"><i class="ti ti-download me-1"></i> Descargar PDF</button>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 col-xl-4">
-                    <div class="card subject-card shadow-sm" onclick="window.location.href='detalle-materia.html'">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3"><div class="bg-light-success p-2 rounded me-3"><i class="ti ti-code f-24 text-success"></i></div><h5 class="mb-0">Programación III</h5></div>
-                            <div class="d-flex align-items-center mb-3"><img src="../../assets/images/user/avatar-3.png" class="prof-avatar me-2" /><div><p class="mb-0 small text-muted">Profesor:</p><h6 class="mb-0">Ing. Elon Musk</h6></div></div>
-                            <div class="d-flex justify-content-between align-items-center"><span class="badge bg-light-info">M-J</span><small class="text-muted">10:00 - 12:00</small></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-xl-4">
-                    <div class="card subject-card shadow-sm" onclick="window.location.href='detalle-materia.html'">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center mb-3"><div class="bg-light-warning p-2 rounded me-3"><i class="ti ti-scale f-24 text-warning"></i></div><h5 class="mb-0">Ética Profesional</h5></div>
-                            <div class="d-flex align-items-center mb-3"><img src="../../assets/images/user/avatar-4.png" class="prof-avatar me-2" /><div><p class="mb-0 small text-muted">Profesor:</p><h6 class="mb-0">Lic. Sócrates</h6></div></div>
-                            <div class="d-flex justify-content-between align-items-center"><span class="badge bg-light-info">L-V</span><small class="text-muted">12:00 - 14:00</small></div>
-                        </div>
+            </div>
+
+            <div class="alert alert-info border-info">
+                <i class="ti ti-info-circle me-2"></i> <strong>Nota sobre ponderaciones:</strong> Las calificaciones menores a 5.0 se asientan como 0.0. Calificaciones de 5.0 son reprobatorias. Los decimales a partir de .5 redondean al entero superior.
+            </div>
+
+            <div class="card">
+                <div class="card-header"><h5>Ciclo Escolar 2023-2 (Semestre Anterior)</h5></div>
+                <div class="card-body p-0">
+                    <div class="table-responsive">
+                        <table class="table table-hover mb-0">
+                            <thead><tr><th>Materia</th><th>Modelo</th><th>Calificación Original</th><th>Calificación Kardex</th><th>Resultado</th></tr></thead>
+                            <tbody>
+                                <tr><td>Matemáticas I</td><td>Ordinario</td><td>9.4</td><td class="grade-pass">9.0</td><td><span class="badge bg-light-success">Aprobada</span></td></tr>
+                                <tr><td>Física I</td><td>Ordinario</td><td>8.5</td><td class="grade-pass">9.0</td><td><span class="badge bg-light-success">Aprobada</span></td></tr>
+                                <tr><td>Química Orgánica</td><td>Extraordinario</td><td>4.9</td><td class="grade-fail">0.0</td><td><span class="badge bg-light-danger">Reprobada</span></td></tr>
+                                <tr><td>Inglés III</td><td>Ordinario</td><td>5.0</td><td class="grade-fail">5.0</td><td><span class="badge bg-light-danger">Reprobada</span></td></tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     <script src="../../assets/js/plugins/popper.min.js"></script>
     <script src="../../assets/js/plugins/simplebar.min.js"></script>
     <script src="../../assets/js/plugins/bootstrap.min.js"></script>
     <script src="../../assets/js/script.js"></script>
     <script src="../../assets/js/theme.js"></script>
 
-    <script>document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Alumno Anáhuac';</script>
+    <script>
+        document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Alumno Anáhuac';
+    </script>
 </body>
 </html>

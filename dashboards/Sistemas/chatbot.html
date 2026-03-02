@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <title>Dashboard IT | Colegio Anáhuac</title>
+    <title>Configuración IA | Colegio Anáhuac</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -32,9 +32,9 @@
             <div class="navbar-content">
                 <ul class="pc-navbar">
                     <li class="pc-item pc-caption"><label>Administración IT</label></li>
-                    <li class="pc-item active"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard IT</span></a></li>
+                    <li class="pc-item"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard IT</span></a></li>
                     <li class="pc-item"><a href="logs.html" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Logs de Auditoría</span></a></li>
-                    <li class="pc-item"><a href="chatbot.html" class="pc-link"><span class="pc-micon"><i class="ti ti-message-chatbot"></i></span><span class="pc-mtext">Configuración IA</span></a></li>
+                    <li class="pc-item active"><a href="chatbot.html" class="pc-link"><span class="pc-micon"><i class="ti ti-message-chatbot"></i></span><span class="pc-mtext">Configuración IA</span></a></li>
                     <li class="pc-item pc-caption"><label>Soporte</label></li>
                     <li class="pc-item"><a href="ayuda.html" class="pc-link"><span class="pc-micon"><i class="ti ti-help"></i></span><span class="pc-mtext">Manuales y Ayuda</span></a></li>
                     <li class="pc-item pc-caption"><label>Otros</label></li>
@@ -60,29 +60,31 @@
             </div>
         </div>
     </header>
+
     <div class="pc-container">
         <div class="pc-content">
-            <div class="page-header"><div class="page-block"><div class="row align-items-center"><div class="col-md-12"><h2 class="mb-0">Panel de Control de Sistemas</h2><p class="text-muted">Monitoreo de Infraestructura y Servicios Críticos</p></div></div></div></div>
+            <div class="page-header"><div class="page-block"><div class="row align-items-center"><div class="col-md-12"><h2 class="mb-0">Configuración de Inteligencia Artificial</h2><p class="text-muted">Gestión del motor Gemini para asistencia al usuario.</p></div></div></div></div>
+            
             <div class="row">
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-success order-card"><div class="card-body"><h6>Servidores Core</h6><h2 class="text-end"><i class="ti ti-server float-start"></i>Online</h2><p class="m-b-0 small">Uptime: 99.9%</p></div></div></div>
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-primary order-card"><div class="card-body"><h6>Carga de CPU</h6><h2 class="text-end"><i class="ti ti-cpu float-start"></i>12%</h2><p class="m-b-0 small">4 Nodos Activos</p></div></div></div>
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-info order-card"><div class="card-body"><h6>Memoria RAM</h6><h2 class="text-end"><i class="ti ti-device-sdcard float-start"></i>45%</h2><p class="m-b-0 small">En uso: 14.4 GB</p></div></div></div>
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-danger order-card"><div class="card-body"><h6>Storage DB</h6><h2 class="text-end"><i class="ti ti-database float-start"></i>68%</h2><p class="m-b-0 small">Libre: 120 GB</p></div></div></div>
-
-                <div class="col-md-12">
+                <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header"><h5>Estado de Microservicios</h5></div>
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0">
-                                    <thead><tr><th>Servicio</th><th>Endpoint</th><th>Latencia</th><th>Estatus</th></tr></thead>
-                                    <tbody>
-                                        <tr><td>API Portal Alumnos</td><td>/api/v1/students</td><td>45ms</td><td><span class="badge bg-light-success text-success">Operativo</span></td></tr>
-                                        <tr><td>Servicio de Autenticación</td><td>/auth/2fa</td><td>12ms</td><td><span class="badge bg-light-success text-success">Operativo</span></td></tr>
-                                        <tr><td>Motor de Pagos</td><td>/finance/gate</td><td>120ms</td><td><span class="badge bg-light-warning text-warning">Lento</span></td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="card-header"><h5>Personalidad del Asistente</h5></div>
+                        <div class="card-body">
+                            <label class="form-label">System Prompt (Instrucciones base)</label>
+                            <textarea class="form-control mb-3" rows="6">Eres el asistente virtual oficial del Colegio Anáhuac. Tu tono debe ser amable, profesional y servicial. Ayuda a los alumnos con dudas sobre sus pagos, horarios y materias basándote en la información del portal. No reveles datos sensibles de otros usuarios.</textarea>
+                            <button class="btn btn-primary">Actualizar Modelo</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header"><h5>Parámetros Técnicos</h5></div>
+                        <div class="card-body">
+                            <label class="form-label">Temperatura (Creatividad): 0.7</label>
+                            <input type="range" class="form-range mb-3" min="0" max="1" step="0.1" value="0.7">
+                            <label class="form-label">Modelo Seleccionado</label>
+                            <select class="form-select mb-3"><option>Gemini 1.5 Flash (Recomendado)</option><option>Gemini 1.5 Pro</option></select>
+                            <div class="badge bg-light-success text-success w-100 p-2">Estado: Conectado</div>
                         </div>
                     </div>
                 </div>
@@ -95,6 +97,6 @@
     <script src="../../assets/js/script.js"></script>
     <script src="../../assets/js/theme.js"></script>
 
-    <script>document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Sistemas Anáhuac';</script>
+    <script>document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'IT Anáhuac';</script>
 </body>
 </html>

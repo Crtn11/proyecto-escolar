@@ -1,0 +1,79 @@
+/* Overrides de Estilos Colegio Anáhuac */
+
+/* 1. Fondo del Menú Lateral (Sidebar) */
+.pc-sidebar {
+    background: #0E214A !important;
+}
+
+.pc-sidebar .m-header {
+    background: #0E214A !important;
+}
+
+/* Redondeado sutil para el Logo en el menú */
+.logo-lg {
+    border-radius: 8px !important;
+    overflow: hidden;
+}
+
+/* 2. Efecto HOVER y ACTIVO en el Menú (Dorado con letra BLANCA) */
+.pc-sidebar .pc-link:hover, 
+.pc-sidebar .pc-item.active > .pc-link {
+    background: #D4AF37 !important; 
+    border-radius: 8px;
+    margin: 0 10px;
+}
+
+/* Letras e iconos del menú SIEMPRE BLANCOS */
+.pc-sidebar .pc-link, 
+.pc-sidebar .pc-link span, 
+.pc-sidebar .pc-mtext, 
+.pc-sidebar .pc-micon i, 
+.pc-sidebar .pc-caption label,
+.pc-sidebar .pc-link:hover .pc-mtext,
+.pc-sidebar .pc-link:hover .pc-micon i,
+.pc-sidebar .pc-item.active .pc-mtext,
+.pc-sidebar .pc-item.active .pc-micon i {
+    color: #ffffff !important;
+}
+
+/* 3. COLORES DE ESTADO FUERTES (SPANS) */
+.text-primary, span.text-primary { color: #004a99 !important; font-weight: 600; }
+.text-success, span.text-success { color: #155724 !important; font-weight: 600; }
+.text-warning, span.text-warning { color: #856404 !important; font-weight: 600; }
+.text-danger, span.text-danger { color: #721c24 !important; font-weight: 600; }
+
+.bg-light-primary { background-color: #e0eeff !important; border: 1px solid #004a99 !important; }
+.bg-light-success { background-color: #d4edda !important; border: 1px solid #155724 !important; }
+.bg-light-warning { background-color: #fff3cd !important; border: 1px solid #856404 !important; }
+.bg-light-danger { background-color: #f8d7da !important; border: 1px solid #721c24 !important; }
+
+/* 4. TEXTOS DEL CONTENIDO (SIEMPRE NEGROS) */
+body, p, div, li, td, th, label, input, textarea, select {
+    color: #000000 !important;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .card-header h5 {
+    color: #000000 !important;
+    font-weight: 700 !important;
+}
+
+.order-card h2, .order-card h6, .order-card p, .order-card i {
+    color: #000000 !important;
+}
+
+/* 5. EXCEPCIONES DE UI */
+.btn-royal {
+    background-color: #00BFFF !important; /* Azul Cielo */
+    color: #ffffff !important;
+    border: none !important;
+    transition: 0.3s !important;
+}
+
+.btn-royal:hover {
+    background-color: #002d5a !important; /* Azul Marino */
+    color: #ffffff !important;
+    transform: translateY(-2px);
+}
+
+.btn { color: #ffffff !important; }
+.pc-header .user-name { color: #000000 !important; }

@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>Matriz Horaria | Colegio Anáhuac</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="../../assets/images/IconoColegioAnahuac.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/fonts/phosphor/regular/style.css" />
+    <link rel="stylesheet" href="../../assets/fonts/tabler-icons.min.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" id="main-style-link" />
+    <link rel="stylesheet" href="../../assets/css/style-preset.css" />
+
+    <link rel="stylesheet" href="../../assets/css/custom-typography.css" />
+    <style>
+        .logo-lg { max-height: 55px; width: auto; }
+        .pc-sidebar .m-header { padding: 10px 20px; height: 80px; display: flex; align-items: center; }
+        .pc-header .user-avtar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ff6b00; }
+        .pc-header .user-name { font-weight: 600; margin-left: 10px; display: inline-block; vertical-align: middle; }
+        .schedule-matrix td { height: 60px; min-width: 120px; vertical-align: middle; position: relative; }
+        .slot-filled { background: rgba(255, 107, 0, 0.1); border: 1px solid #ff6b00; border-radius: 4px; padding: 5px; font-size: 11px; }
+        .slot-conflict { background: rgba(220, 53, 69, 0.1); border: 1px solid #dc3545; border-radius: 4px; padding: 5px; font-size: 11px; color: #dc3545; }
+        @media (max-width: 1024px) {
+            .pc-header { display: flex !important; top: 0 !important; position: fixed !important; background: #fff !important; z-index: 1025 !important; }
+            .pc-container { margin-top: 70px !important; }
+        }
+    </style>
+</head>
+<body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <div class="loader-bg"><div class="loader-track"><div class="loader-fill"></div></div></div>
+    <nav class="pc-sidebar">
+        <div class="navbar-wrapper">
+            <div class="m-header"><a href="index.html" class="b-brand"><img src="../../assets/images/LogoColegioAnahuac.png" alt="logo" class="logo-lg" /></a></div>
+            <div class="navbar-content">
+                <ul class="pc-navbar">
+                    <li class="pc-item pc-caption"><label>Control Escolar</label></li>
+                    <li class="pc-item"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
+                    <li class="pc-item active"><a href="matriz-horaria.html" class="pc-link"><span class="pc-micon"><i class="ti ti-calendar-stats"></i></span><span class="pc-mtext">Matriz Horaria</span></a></li>
+                    <li class="pc-item"><a href="ciclos.html" class="pc-link"><span class="pc-micon"><i class="ti ti-refresh"></i></span><span class="pc-mtext">Ciclos Escolares</span></a></li>
+                    <li class="pc-item pc-caption"><label>Finanzas</label></li>
+                    <li class="pc-item"><a href="cobranza.html" class="pc-link"><span class="pc-micon"><i class="ti ti-cash"></i></span><span class="pc-mtext">Cobranza y Pagos</span></a></li>
+                    <li class="pc-item pc-caption"><label>Personal</label></li>
+                    <li class="pc-item"><a href="personal.html" class="pc-link"><span class="pc-micon"><i class="ti ti-users"></i></span><span class="pc-mtext">Plantilla Docente</span></a></li>
+                    <li class="pc-item"><a href="permisos.html" class="pc-link"><span class="pc-micon"><i class="ti ti-settings"></i></span><span class="pc-mtext">Roles y Permisos</span></a></li>
+                    <li class="pc-item pc-caption"><label>Soporte</label></li>
+                    <li class="pc-item"><a href="ayuda.html" class="pc-link"><span class="pc-micon"><i class="ti ti-help"></i></span><span class="pc-mtext">Manuales y Ayuda</span></a></li>
+                    <li class="pc-item pc-caption"><label>Otros</label></li>
+                    <li class="pc-item"><a href="../../login.html" class="pc-link"><span class="pc-micon"><i class="ti ti-logout"></i></span><span class="pc-mtext">Cerrar Sesión</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <header class="pc-header">
+        <div class="header-wrapper">
+            <div class="me-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="ti ti-menu-2"></i></a></li>
+                    <li class="pc-h-item pc-sidebar-popup"><a href="#" class="pc-head-link ms-0" id="mobile-collapse"><i class="ti ti-menu-2" style="color: #ff6b00; font-size: 24px;"></i></a></li>
+                </ul>
+            </div>
+            <div class="ms-auto d-flex align-items-center">
+                <img src="../../assets/images/LogoColegioAnahuac.png" class="d-md-none me-2" style="max-height: 30px;" />
+                <div class="d-flex align-items-center">
+                    <img src="../../assets/images/user/avatar-10.png" alt="user-image" class="user-avtar" />
+                    <span class="user-name d-none d-sm-inline-block" id="userName">Admin</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="pc-container">
+        <div class="pc-content">
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-8"><h2 class="mb-0">Gestión de Matriz Horaria</h2><p class="text-muted">Diseño y validación de horarios escolares.</p></div>
+                        <div class="col-md-4 text-end"><button class="btn btn-primary"><i class="ti ti-download me-1"></i> Reporte para Firma</button></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3"><label class="form-label">Nivel</label><select class="form-select"><option>Preparatoria</option><option>Licenciatura</option></select></div>
+                                <div class="col-md-3"><label class="form-label">Ciclo</label><select class="form-select"><option>2024-1</option></select></div>
+                                <div class="col-md-3"><label class="form-label">Grupo</label><select class="form-select"><option>102-A</option></select></div>
+                                <div class="col-md-3 d-flex align-items-end"><button class="btn btn-outline-primary w-100">Cargar Matriz</button></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <h5>Horario Grupo: 102-A</h5>
+                            <div>
+                                <span class="badge bg-light-warning text-dark me-2">Ocupación: 28 hrs</span>
+                                <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modalAsignar"><i class="ti ti-plus"></i> Asignar Clase</button>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-bordered schedule-matrix text-center mb-0">
+                                    <thead class="bg-light"><tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr></thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>07:00</td>
+                                            <td><div class="slot-filled">Matemáticas<br>Dr. Armando<br>Aula A12</div></td>
+                                            <td>-</td>
+                                            <td><div class="slot-filled">Matemáticas<br>Dr. Armando<br>Aula A12</div></td>
+                                            <td>-</td>
+                                            <td><div class="slot-filled">Matemáticas<br>Dr. Armando<br>Aula A12</div></td>
+                                        </tr>
+                                        <tr>
+                                            <td>08:00</td>
+                                            <td>-</td>
+                                            <td><div class="slot-conflict">¡CHOQUE!<br>Ing. Musk<br>Materia ocupada</div></td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                            <td>-</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalAsignar" tabindex="-1"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><h5>Asignar Nueva Materia</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="mb-3"><label class="form-label">Materia</label><select class="form-select"><option>Física II</option></select></div><div class="mb-3"><label class="form-label">Docente</label><select class="form-select"><option>Ing. Nikola Tesla</option></select></div><div class="mb-3"><label class="form-label">Salón</label><input type="text" class="form-control" placeholder="Aula B4"></div></div><div class="modal-footer"><button class="btn btn-primary w-100">Validar y Guardar</button></div></div></div></div>
+    <script src="../../assets/js/plugins/popper.min.js"></script>
+    <script src="../../assets/js/plugins/simplebar.min.js"></script>
+    <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/theme.js"></script>
+
+    <script>document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Admin Colegio';</script>
+</body>
+</html>

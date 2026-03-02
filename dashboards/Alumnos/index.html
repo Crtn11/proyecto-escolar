@@ -8,34 +8,40 @@
 
     <!-- [Favicon] icon -->
     <link rel="icon" href="../../assets/images/IconoColegioAnahuac.png" type="image/png" />
-    
-    <!-- [Font] Family -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
-    <!-- [phosphor Icons] -->
     <link rel="stylesheet" href="../../assets/fonts/phosphor/regular/style.css" />
-    <!-- [Tabler Icons] -->
     <link rel="stylesheet" href="../../assets/fonts/tabler-icons.min.css" />
-    <!-- [Template CSS Files] -->
     <link rel="stylesheet" href="../../assets/css/style.css" id="main-style-link" />
     <link rel="stylesheet" href="../../assets/css/style-preset.css" />
+
+    <link rel="stylesheet" href="../../assets/css/custom-typography.css" />
     
     <style>
         .logo-lg { max-height: 55px; width: auto; }
         .pc-sidebar .m-header { padding: 10px 20px; height: 80px; display: flex; align-items: center; }
+        
+        /* Ajustes para el perfil en el Header */
+        .pc-header .user-avtar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ff6b00; }
+        .pc-header .user-name { font-weight: 600; margin-left: 10px; display: inline-block; vertical-align: middle; }
+        
+        /* Ajuste de distribución principal */
         @media (max-width: 1024px) {
             .pc-header { display: flex !important; top: 0 !important; position: fixed !important; background: #fff !important; z-index: 1025 !important; }
             .pc-container { margin-top: 70px !important; }
         }
+
+        .profile-card-header { 
+            background: linear-gradient(135deg, #0E214A 0%, #1a3a7a 100%); 
+            color: white !important; 
+            border-radius: 15px;
+            overflow: hidden;
+        }
+        .profile-card-header * { color: white !important; }
     </style>
 </head>
 
 <body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
-    <!-- [ Pre-loader ] start -->
-    <div class="loader-bg">
-        <div class="loader-track">
-            <div class="loader-fill"></div>
-        </div>
-    </div>
+    <div class="loader-bg"><div class="loader-track"><div class="loader-fill"></div></div></div>
 
     <!-- [ Sidebar ] start -->
     <nav class="pc-sidebar">
@@ -51,68 +57,70 @@
                     <li class="pc-item active"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
                     <li class="pc-item"><a href="materias.html" class="pc-link"><span class="pc-micon"><i class="ti ti-book"></i></span><span class="pc-mtext">Mis Materias</span></a></li>
                     <li class="pc-item"><a href="horarios.html" class="pc-link"><span class="pc-micon"><i class="ti ti-calendar"></i></span><span class="pc-mtext">Horarios</span></a></li>
-                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Calificaciones</span></a></li>
-                    
+                    <li class="pc-item"><a href="kardex.html" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Kardex Académico</span></a></li>
+                    <li class="pc-item"><a href="evaluacion.html" class="pc-link"><span class="pc-micon"><i class="ti ti-star"></i></span><span class="pc-mtext">Evaluación Docente</span></a></li>
                     <li class="pc-item pc-caption"><label>Administrativo</label></li>
-                    <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-credit-card"></i></span><span class="pc-mtext">Pagos y Facturación</span></a></li>
-                    
+                    <li class="pc-item"><a href="finanzas.html" class="pc-link"><span class="pc-micon"><i class="ti ti-credit-card"></i></span><span class="pc-mtext">Estado de Cuenta</span></a></li>
+                    <li class="pc-item pc-caption"><label>Soporte</label></li>
+                    <li class="pc-item"><a href="ayuda.html" class="pc-link"><span class="pc-micon"><i class="ti ti-help"></i></span><span class="pc-mtext">Manuales y Ayuda</span></a></li>
                     <li class="pc-item pc-caption"><label>Otros</label></li>
                     <li class="pc-item"><a href="../../login.html" class="pc-link"><span class="pc-micon"><i class="ti ti-logout"></i></span><span class="pc-mtext">Cerrar Sesión</span></a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- [ Sidebar ] end -->
 
     <!-- [ Header ] start -->
     <header class="pc-header">
         <div class="header-wrapper">
             <div class="me-auto pc-mob-drp">
                 <ul class="list-unstyled">
-                    <li class="pc-h-item pc-sidebar-collapse">
-                        <a href="#" class="pc-head-link ms-0" id="sidebar-hide">
-                            <i class="ti ti-menu-2"></i>
-                        </a>
-                    </li>
-                    <li class="pc-h-item pc-sidebar-popup">
-                        <a href="#" class="pc-head-link ms-0" id="mobile-collapse">
-                            <i class="ti ti-menu-2" style="color: #ff6b00; font-size: 24px;"></i>
-                        </a>
-                    </li>
+                    <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="ti ti-menu-2"></i></a></li>
+                    <li class="pc-h-item pc-sidebar-popup"><a href="#" class="pc-head-link ms-0" id="mobile-collapse"><i class="ti ti-menu-2" style="color: #ff6b00; font-size: 24px;"></i></a></li>
                 </ul>
             </div>
             <div class="ms-auto d-flex align-items-center">
                 <img src="../../assets/images/LogoColegioAnahuac.png" class="d-md-none me-2" style="max-height: 30px;" />
-                <ul class="list-unstyled">
-                    <li class="dropdown pc-h-item">
-                        <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button">
-                            <i class="ti ti-bell"></i>
-                            <span class="badge bg-danger pc-h-badge">3</span>
-                        </a>
-                    </li>
-                    <li class="dropdown pc-h-item">
-                        <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button">
-                            <img src="../../assets/images/user/avatar-1.png" alt="user-image" class="user-avtar" />
-                            <span><span class="user-name" id="userName">Cargando...</span></span>
-                        </a>
-                    </li>
-                </ul>
+                <div class="d-flex align-items-center">
+                    <img src="../../assets/images/user/avatar-1.png" alt="user-image" class="user-avtar" />
+                    <span class="user-name d-none d-sm-inline-block" id="userName">Alumno</span>
+                </div>
             </div>
         </div>
     </header>
-    <!-- [ Header ] end -->
 
     <!-- [ Main Content ] start -->
     <div class="pc-container">
         <div class="pc-content">
-            <div class="page-header">
-                <div class="page-block">
-                    <div class="row align-items-center">
-                        <div class="col-md-12">
-                            <div class="page-header-title d-flex justify-content-between align-items-center">
-                                <h2 class="mb-0">¡Bienvenido de nuevo!</h2>
-                                <span class="badge bg-light-primary border border-primary text-primary px-3 py-2">Grupo: 102-A</span>
+            <!-- SECCIÓN DE BIENVENIDA Y PERFIL -->
+            <div class="row mb-4">
+                <div class="col-md-12">
+                    <div class="card profile-card-header shadow-lg border-0">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center flex-wrap gap-3">
+                                <img src="../../assets/images/user/avatar-1.png" alt="user" class="rounded-circle border border-white" style="width: 80px; height: 80px; border-width: 3px !important;">
+                                <div class="flex-grow-1">
+                                    <h2 class="mb-1">¡Hola, <span id="welcomeName">Alumno Anáhuac</span>!</h2>
+                                    <p class="mb-0 opacity-75">Bienvenido a tu portal escolar. Hoy es <span id="currentDate"></span></p>
+                                </div>
+                                <div class="text-md-end text-start">
+                                    <span class="badge bg-light-warning text-dark px-3 py-2 mb-1 d-inline-block">Grupo: 102-A</span>
+                                    <p class="mb-0 small fw-bold">Matrícula: 2024-AL-085</p>
+                                </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN DEMOSTRATIVA: BLOQUEO DE ACCESO -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="alert alert-danger d-flex align-items-center shadow-sm border-2" role="alert">
+                        <i class="ti ti-lock-off f-30 me-3"></i>
+                        <div>
+                            <h5 class="alert-heading mb-1 text-danger">Acceso Restringido (Simulación)</h5>
+                            <p class="mb-0 small"><strong>Razón:</strong> Pendiente de pago de colegiatura (Mes de Octubre). Realiza tu pago en el módulo de <a href="finanzas.html" class="alert-link text-decoration-underline">Estado de Cuenta</a>.</p>
                         </div>
                     </div>
                 </div>
@@ -123,8 +131,8 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card bg-grd-primary order-card">
                         <div class="card-body">
-                            <h6 class="text-white">Promedio General</h6>
-                            <h2 class="text-end text-white"><i class="ti ti-award float-start"></i><span>9.2</span></h2>
+                            <h6>Promedio General</h6>
+                            <h2 class="text-end"><i class="ti ti-award float-start f-30"></i><span>9.2</span></h2>
                             <p class="m-b-0">Ciclo 2024-1</p>
                         </div>
                     </div>
@@ -132,26 +140,26 @@
                 <div class="col-md-6 col-xl-3">
                     <div class="card bg-grd-success order-card">
                         <div class="card-body">
-                            <h6 class="text-white">Asistencia</h6>
-                            <h2 class="text-end text-white"><i class="ti ti-user-check float-start"></i><span>98%</span></h2>
-                            <p class="m-b-0">Total de faltas: 2</p>
+                            <h6>Asistencia</h6>
+                            <h2 class="text-end"><i class="ti ti-user-check float-start f-30"></i><span>98%</span></h2>
+                            <p class="m-b-0">Total faltas: 2</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-3">
                     <div class="card bg-grd-warning order-card">
                         <div class="card-body">
-                            <h6 class="text-white">Tareas Pendientes</h6>
-                            <h2 class="text-end text-white"><i class="ti ti-list-check float-start"></i><span>4</span></h2>
-                            <p class="m-b-0">Próxima entrega: Mañana</p>
+                            <h6>Tareas Pendientes</h6>
+                            <h2 class="text-end"><i class="ti ti-list-check float-start f-30"></i><span>4</span></h2>
+                            <p class="m-b-0">Próxima: Mañana</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-xl-3">
                     <div class="card bg-grd-danger order-card">
                         <div class="card-body">
-                            <h6 class="text-white">Pagos Pendientes</h6>
-                            <h2 class="text-end text-white"><i class="ti ti-report-money float-start"></i><span>1</span></h2>
+                            <h6>Pagos Pendientes</h6>
+                            <h2 class="text-end"><i class="ti ti-report-money float-start f-30"></i><span>1</span></h2>
                             <p class="m-b-0">Vence en 5 días</p>
                         </div>
                     </div>
@@ -160,40 +168,18 @@
                 <!-- Tabla de Materias -->
                 <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header d-flex justify-content-between">
-                            <h5>Mis Materias Actuales</h5>
-                            <a href="materias.html" class="btn btn-sm btn-link-primary">Ver detalle</a>
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Mis Materias Actuales</h5>
+                            <a href="materias.html" class="btn btn-sm btn-link-primary">Ver detalle completo</a>
                         </div>
                         <div class="card-body p-0">
                             <div class="table-responsive">
                                 <table class="table table-hover mb-0">
-                                    <thead>
-                                        <tr>
-                                            <th>Materia</th>
-                                            <th>Profesor</th>
-                                            <th>Horario</th>
-                                            <th class="text-end">Calificación</th>
-                                        </tr>
-                                    </thead>
+                                    <thead><tr><th>Materia</th><th>Profesor</th><th>Horario</th><th class="text-end">Calif.</th></tr></thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Matemáticas Avanzadas</td>
-                                            <td>Dr. Armando Casas</td>
-                                            <td>L-M-V 08:00</td>
-                                            <td class="text-end"><span class="badge bg-light-success">9.5</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Programación III</td>
-                                            <td>Ing. Elon Musk</td>
-                                            <td>M-J 10:00</td>
-                                            <td class="text-end"><span class="badge bg-light-primary">10.0</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Ética Profesional</td>
-                                            <td>Lic. Sócrates</td>
-                                            <td>L-V 12:00</td>
-                                            <td class="text-end"><span class="badge bg-light-warning">8.0</span></td>
-                                        </tr>
+                                        <tr><td>Matemáticas Avanzadas</td><td>Dr. Armando Casas</td><td>L-M-V 08:00</td><td class="text-end"><span class="badge bg-light-success">9.5</span></td></tr>
+                                        <tr><td>Programación III</td><td>Ing. Elon Musk</td><td>M-J 10:00</td><td class="text-end"><span class="badge bg-light-primary">10.0</span></td></tr>
+                                        <tr><td>Ética Profesional</td><td>Lic. Sócrates</td><td>L-V 12:00</td><td class="text-end"><span class="badge bg-light-warning">8.0</span></td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -204,26 +190,20 @@
                 <!-- Avisos -->
                 <div class="col-md-4">
                     <div class="card">
-                        <div class="card-header">
-                            <h5>Avisos Recientes</h5>
-                        </div>
+                        <div class="card-header"><h5>Avisos Recientes</h5></div>
                         <div class="card-body">
-                            <div class="media mb-3 d-flex">
-                                <div class="bg-light-primary p-2 rounded me-3">
-                                    <i class="ti ti-news text-primary"></i>
-                                </div>
+                            <div class="media mb-3 d-flex align-items-center">
+                                <div class="bg-light-primary p-2 rounded me-3"><i class="ti ti-news text-primary"></i></div>
                                 <div class="media-body">
-                                    <h6 class="mb-1">Exámenes Finales</h6>
-                                    <p class="text-muted mb-0 small">Se han publicado las fechas oficiales de exámenes...</p>
+                                    <h6 class="mb-0">Exámenes Finales</h6>
+                                    <p class="text-muted mb-0 small">Fechas publicadas.</p>
                                 </div>
                             </div>
-                            <div class="media mb-3 d-flex">
-                                <div class="bg-light-danger p-2 rounded me-3">
-                                    <i class="ti ti-alert-triangle text-danger"></i>
-                                </div>
+                            <div class="media mb-0 d-flex align-items-center">
+                                <div class="bg-light-danger p-2 rounded me-3"><i class="ti ti-alert-triangle text-danger"></i></div>
                                 <div class="media-body">
-                                    <h6 class="mb-1">Mantenimiento Portal</h6>
-                                    <p class="text-muted mb-0 small">Este domingo el portal estará fuera de servicio...</p>
+                                    <h6 class="mb-0">Mantenimiento</h6>
+                                    <p class="text-muted mb-0 small">Domingo sin servicio.</p>
                                 </div>
                             </div>
                         </div>
@@ -233,15 +213,18 @@
         </div>
     </div>
 
-    <!-- Required Js -->
     <script src="../../assets/js/plugins/popper.min.js"></script>
     <script src="../../assets/js/plugins/simplebar.min.js"></script>
     <script src="../../assets/js/plugins/bootstrap.min.js"></script>
     <script src="../../assets/js/script.js"></script>
     <script src="../../assets/js/theme.js"></script>
+
     
     <script>
-        document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Alumno Anáhuac';
+        const userEmail = localStorage.getItem('portal_user_email') || 'Alumno Anáhuac';
+        document.getElementById('userName').innerText = userEmail;
+        document.getElementById('welcomeName').innerText = userEmail.split('@')[0];
+        document.getElementById('currentDate').innerText = new Date().toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     </script>
 </body>
 </html>

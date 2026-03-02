@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <title>Dashboard IT | Colegio Anáhuac</title>
+    <title>Roles y Permisos | Colegio Anáhuac</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,6 +18,7 @@
         .pc-sidebar .m-header { padding: 10px 20px; height: 80px; display: flex; align-items: center; }
         .pc-header .user-avtar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ff6b00; }
         .pc-header .user-name { font-weight: 600; margin-left: 10px; display: inline-block; vertical-align: middle; }
+        .role-selected { border-left: 5px solid #D4AF37 !important; background: rgba(212, 175, 55, 0.05); }
         @media (max-width: 1024px) {
             .pc-header { display: flex !important; top: 0 !important; position: fixed !important; background: #fff !important; z-index: 1025 !important; }
             .pc-container { margin-top: 70px !important; }
@@ -31,10 +32,15 @@
             <div class="m-header"><a href="index.html" class="b-brand"><img src="../../assets/images/LogoColegioAnahuac.png" alt="logo" class="logo-lg" /></a></div>
             <div class="navbar-content">
                 <ul class="pc-navbar">
-                    <li class="pc-item pc-caption"><label>Administración IT</label></li>
-                    <li class="pc-item active"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard IT</span></a></li>
-                    <li class="pc-item"><a href="logs.html" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Logs de Auditoría</span></a></li>
-                    <li class="pc-item"><a href="chatbot.html" class="pc-link"><span class="pc-micon"><i class="ti ti-message-chatbot"></i></span><span class="pc-mtext">Configuración IA</span></a></li>
+                    <li class="pc-item pc-caption"><label>Control Escolar</label></li>
+                    <li class="pc-item"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
+                    <li class="pc-item"><a href="matriz-horaria.html" class="pc-link"><span class="pc-micon"><i class="ti ti-calendar-stats"></i></span><span class="pc-mtext">Matriz Horaria</span></a></li>
+                    <li class="pc-item"><a href="ciclos.html" class="pc-link"><span class="pc-micon"><i class="ti ti-refresh"></i></span><span class="pc-mtext">Ciclos Escolares</span></a></li>
+                    <li class="pc-item pc-caption"><label>Finanzas</label></li>
+                    <li class="pc-item"><a href="cobranza.html" class="pc-link"><span class="pc-micon"><i class="ti ti-cash"></i></span><span class="pc-mtext">Cobranza y Pagos</span></a></li>
+                    <li class="pc-item pc-caption"><label>Personal</label></li>
+                    <li class="pc-item"><a href="personal.html" class="pc-link"><span class="pc-micon"><i class="ti ti-users"></i></span><span class="pc-mtext">Plantilla Docente</span></a></li>
+                    <li class="pc-item active"><a href="permisos.html" class="pc-link"><span class="pc-micon"><i class="ti ti-settings"></i></span><span class="pc-mtext">Roles y Permisos</span></a></li>
                     <li class="pc-item pc-caption"><label>Soporte</label></li>
                     <li class="pc-item"><a href="ayuda.html" class="pc-link"><span class="pc-micon"><i class="ti ti-help"></i></span><span class="pc-mtext">Manuales y Ayuda</span></a></li>
                     <li class="pc-item pc-caption"><label>Otros</label></li>
@@ -54,38 +60,21 @@
             <div class="ms-auto d-flex align-items-center">
                 <img src="../../assets/images/LogoColegioAnahuac.png" class="d-md-none me-2" style="max-height: 30px;" />
                 <div class="d-flex align-items-center">
-                    <img src="../../assets/images/user/avatar-1.png" alt="user-image" class="user-avtar" />
-                    <span class="user-name d-none d-sm-inline-block" id="userName">Sistemas</span>
+                    <img src="../../assets/images/user/avatar-10.png" alt="user-image" class="user-avtar" />
+                    <span class="user-name d-none d-sm-inline-block" id="userName">Admin</span>
                 </div>
             </div>
         </div>
     </header>
     <div class="pc-container">
         <div class="pc-content">
-            <div class="page-header"><div class="page-block"><div class="row align-items-center"><div class="col-md-12"><h2 class="mb-0">Panel de Control de Sistemas</h2><p class="text-muted">Monitoreo de Infraestructura y Servicios Críticos</p></div></div></div></div>
+            <div class="page-header"><div class="page-block"><div class="row align-items-center"><div class="col-md-8"><h2 class="mb-0">Roles y Permisos</h2><p class="text-muted">Configuración de niveles de acceso.</p></div><div class="col-md-4 text-end"><button class="btn btn-primary">Nuevo Rol</button></div></div></div></div>
             <div class="row">
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-success order-card"><div class="card-body"><h6>Servidores Core</h6><h2 class="text-end"><i class="ti ti-server float-start"></i>Online</h2><p class="m-b-0 small">Uptime: 99.9%</p></div></div></div>
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-primary order-card"><div class="card-body"><h6>Carga de CPU</h6><h2 class="text-end"><i class="ti ti-cpu float-start"></i>12%</h2><p class="m-b-0 small">4 Nodos Activos</p></div></div></div>
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-info order-card"><div class="card-body"><h6>Memoria RAM</h6><h2 class="text-end"><i class="ti ti-device-sdcard float-start"></i>45%</h2><p class="m-b-0 small">En uso: 14.4 GB</p></div></div></div>
-                <div class="col-md-6 col-xl-3"><div class="card bg-grd-danger order-card"><div class="card-body"><h6>Storage DB</h6><h2 class="text-end"><i class="ti ti-database float-start"></i>68%</h2><p class="m-b-0 small">Libre: 120 GB</p></div></div></div>
-
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header"><h5>Estado de Microservicios</h5></div>
-                        <div class="card-body p-0">
-                            <div class="table-responsive">
-                                <table class="table table-hover mb-0">
-                                    <thead><tr><th>Servicio</th><th>Endpoint</th><th>Latencia</th><th>Estatus</th></tr></thead>
-                                    <tbody>
-                                        <tr><td>API Portal Alumnos</td><td>/api/v1/students</td><td>45ms</td><td><span class="badge bg-light-success text-success">Operativo</span></td></tr>
-                                        <tr><td>Servicio de Autenticación</td><td>/auth/2fa</td><td>12ms</td><td><span class="badge bg-light-success text-success">Operativo</span></td></tr>
-                                        <tr><td>Motor de Pagos</td><td>/finance/gate</td><td>120ms</td><td><span class="badge bg-light-warning text-warning">Lento</span></td></tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <div class="col-md-4"><div class="card"><div class="card-header"><h5>Perfiles</h5></div><div class="list-group list-group-flush">
+                    <a href="#" class="list-group-item list-group-item-action role-selected"><h6 class="mb-1">Administrador Senior</h6></a>
+                    <a href="#" class="list-group-item list-group-item-action"><h6>Catedrático</h6></a>
+                </div></div></div>
+                <div class="col-md-8"><div class="card"><div class="card-header d-flex justify-content-between"><h5>Configurar Permisos</h5><button class="btn btn-sm btn-success">Guardar</button></div><div class="card-body p-0"><div class="table-responsive"><table class="table mb-0"><thead><tr><th>Módulo</th><th>Ver</th><th>Crear</th><th>Editar</th></tr></thead><tbody><tr><td><strong>Gestión de Cobranza</strong></td><td><input type="checkbox" checked></td><td><input type="checkbox" checked></td><td><input type="checkbox" checked></td></tr></tbody></table></div></div></div></div>
             </div>
         </div>
     </div>
@@ -95,6 +84,6 @@
     <script src="../../assets/js/script.js"></script>
     <script src="../../assets/js/theme.js"></script>
 
-    <script>document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Sistemas Anáhuac';</script>
+    <script>document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Admin Colegio';</script>
 </body>
 </html>

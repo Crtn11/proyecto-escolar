@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <title>Captura de Notas | Colegio Anáhuac</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="../../assets/images/IconoColegioAnahuac.png" type="image/png" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../assets/fonts/phosphor/regular/style.css" />
+    <link rel="stylesheet" href="../../assets/fonts/tabler-icons.min.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" id="main-style-link" />
+    <link rel="stylesheet" href="../../assets/css/style-preset.css" />
+
+    <link rel="stylesheet" href="../../assets/css/custom-typography.css" />
+    <style>
+        .logo-lg { max-height: 55px; width: auto; }
+        .pc-sidebar .m-header { padding: 10px 20px; height: 80px; display: flex; align-items: center; }
+        .pc-header .user-avtar { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 2px solid #ff6b00; }
+        .pc-header .user-name { font-weight: 600; margin-left: 10px; display: inline-block; vertical-align: middle; }
+        @media (max-width: 1024px) {
+            .pc-header { display: flex !important; top: 0 !important; position: fixed !important; background: #fff !important; z-index: 1025 !important; }
+            .pc-container { margin-top: 70px !important; }
+        }
+    </style>
+</head>
+<body data-pc-preset="preset-1" data-pc-sidebar-caption="true" data-pc-direction="ltr" data-pc-theme="light">
+    <div class="loader-bg"><div class="loader-track"><div class="loader-fill"></div></div></div>
+    
+    <nav class="pc-sidebar">
+        <div class="navbar-wrapper">
+            <div class="m-header">
+                <a href="index.html" class="b-brand"><img src="../../assets/images/LogoColegioAnahuac.png" alt="logo" class="logo-lg" /></a>
+            </div>
+            <div class="navbar-content">
+                <ul class="pc-navbar">
+                    <li class="pc-item pc-caption"><label>Docencia</label></li>
+                    <li class="pc-item"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
+                    <li class="pc-item active"><a href="captura-notas.html" class="pc-link"><span class="pc-micon"><i class="ti ti-edit"></i></span><span class="pc-mtext">Captura de Notas</span></a></li>
+                    <li class="pc-item"><a href="planeacion.html" class="pc-link"><span class="pc-micon"><i class="ti ti-notebook"></i></span><span class="pc-mtext">Planeación y Temarios</span></a></li>
+                    <li class="pc-item"><a href="grupos.html" class="pc-link"><span class="pc-micon"><i class="ti ti-users"></i></span><span class="pc-mtext">Mis Grupos</span></a></li>
+                    <li class="pc-item pc-caption"><label>Personal</label></li>
+                    <li class="pc-item"><a href="perfil.html" class="pc-link"><span class="pc-micon"><i class="ti ti-user-circle"></i></span><span class="pc-mtext">Mi Perfil / Expediente</span></a></li>
+                    <li class="pc-item pc-caption"><label>Soporte</label></li>
+                    <li class="pc-item"><a href="ayuda.html" class="pc-link"><span class="pc-micon"><i class="ti ti-help"></i></span><span class="pc-mtext">Manuales y Ayuda</span></a></li>
+                    <li class="pc-item pc-caption"><label>Otros</label></li>
+                    <li class="pc-item"><a href="../../login.html" class="pc-link"><span class="pc-micon"><i class="ti ti-logout"></i></span><span class="pc-mtext">Cerrar Sesión</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="pc-header">
+        <div class="header-wrapper">
+            <div class="me-auto pc-mob-drp">
+                <ul class="list-unstyled">
+                    <li class="pc-h-item pc-sidebar-collapse"><a href="#" class="pc-head-link ms-0" id="sidebar-hide"><i class="ti ti-menu-2"></i></a></li>
+                    <li class="pc-h-item pc-sidebar-popup"><a href="#" class="pc-head-link ms-0" id="mobile-collapse"><i class="ti ti-menu-2" style="color: #ff6b00; font-size: 24px;"></i></a></li>
+                </ul>
+            </div>
+            <div class="ms-auto d-flex align-items-center">
+                <img src="../../assets/images/LogoColegioAnahuac.png" class="d-md-none me-2" style="max-height: 30px;" />
+                <div class="d-flex align-items-center">
+                    <img src="../../assets/images/user/avatar-2.png" alt="user-image" class="user-avtar" />
+                    <span class="user-name d-none d-sm-inline-block" id="userName">Profesor</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="pc-container">
+        <div class="pc-content">
+            <div class="page-header">
+                <div class="page-block">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h2 class="mb-0">Captura de Calificaciones</h2>
+                            <p class="text-muted">Ingreso de notas para el ciclo actual.</p>
+                        </div>
+                        <div class="col-md-4 text-end">
+                            <div class="badge bg-light-danger border border-danger text-danger p-2">
+                                <i class="ti ti-clock me-1"></i> Cierre: <strong>15 Nov</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body row align-items-end">
+                            <div class="col-md-6">
+                                <label class="form-label text-dark fw-bold">Grupo Seleccionado</label>
+                                <select class="form-select">
+                                    <option>IS-701 - Ingeniería de Software</option>
+                                    <option>IS-702 - Bases de Datos II</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-dark fw-bold">Periodo de Evaluación</label>
+                                <select class="form-select">
+                                    <option>1er Parcial</option>
+                                    <option>2do Parcial</option>
+                                    <option>Examen Final</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Lista de Alumnos</h5>
+                            <button class="btn btn-sm btn-success"><i class="ti ti-device-floppy me-1"></i> Guardar Todo</button>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Matrícula</th>
+                                            <th>Nombre del Alumno</th>
+                                            <th width="150">Calificación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>20210045</td><td>Juan Pérez García</td><td><input type="number" class="form-control form-control-sm" value="9.5" step="0.1"></td></tr>
+                                        <tr><td>20210082</td><td>María López Sánchez</td><td><input type="number" class="form-control form-control-sm" value="8.0" step="0.1"></td></tr>
+                                        <tr><td>20210099</td><td>Carlos Sosa Ruis</td><td><input type="number" class="form-control form-control-sm" placeholder="-" step="0.1"></td></tr>
+                                        <tr><td>20210110</td><td>Ana García Mendieta</td><td><input type="number" class="form-control form-control-sm" placeholder="-" step="0.1"></td></tr>
+                                        <tr><td>20210125</td><td>Luis Rodríguez Perea</td><td><input type="number" class="form-control form-control-sm" placeholder="-" step="0.1"></td></tr>
+                                        <tr><td>20210140</td><td>Elena Martínez Lara</td><td><input type="number" class="form-control form-control-sm" placeholder="-" step="0.1"></td></tr>
+                                        <tr><td>20210155</td><td>Jorge Hernández Ruiz</td><td><input type="number" class="form-control form-control-sm" placeholder="-" step="0.1"></td></tr>
+                                        <tr><td>20210170</td><td>Sofía Ruiz Valadez</td><td><input type="number" class="form-control form-control-sm" placeholder="-" step="0.1"></td></tr>
+                                        <tr><td>20210185</td><td>Pedro Gómez Farías</td><td><input type="number" class="form-control form-control-sm" placeholder="-" step="0.1"></td></tr>
+                                        <tr><td>20210200</td><td>Lucía Fernández Sosa</td><td><input type="number" class="form-control form-control-sm" placeholder="-" step="0.1"></td></tr>
+                                        <tr><td>20210215</td><td>Miguel Ángel Torres</td><td><input type="number" class="form-control form-control-sm" placeholder="-" step="0.1"></td></tr>
+                                        <tr><td>20210230</td><td>Isabel Castro Ortiz</td><td><input type="number" class="form-control form-control-sm" placeholder="-" step="0.1"></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card bg-light-secondary border-0">
+                        <div class="card-body">
+                            <h6 class="text-dark fw-bold"><i class="ti ti-help me-2"></i>Captura Extemporánea</h6>
+                            <p class="small text-muted">Solicita una apertura de periodo indicando el motivo formal a la coordinación.</p>
+                            <button class="btn btn-sm btn-outline-secondary w-100" data-bs-toggle="modal" data-bs-target="#modalExtemp">Solicitar Apertura</button>
+                        </div>
+                    </div>
+                    <div class="card border-info">
+                        <div class="card-body">
+                            <h6 class="text-info"><i class="ti ti-info-circle me-2"></i>Ayuda Técnica</h6>
+                            <p class="small mb-0">Los cambios se guardan solo al pulsar el botón verde superior.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Extemporánea -->
+    <div class="modal fade" id="modalExtemp" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header"><h5>Solicitud de Apertura</h5><button type="button" class="btn-close" data-bs-dismiss="modal"></button></div>
+                <div class="modal-body">
+                    <label class="form-label">Justificación del retraso</label>
+                    <textarea class="form-control" rows="3" placeholder="Escribe aquí el motivo..."></textarea>
+                </div>
+                <div class="modal-footer"><button class="btn btn-primary w-100">Enviar Solicitud</button></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../assets/js/plugins/popper.min.js"></script>
+    <script src="../../assets/js/plugins/simplebar.min.js"></script>
+    <script src="../../assets/js/plugins/bootstrap.min.js"></script>
+    <script src="../../assets/js/script.js"></script>
+    <script src="../../assets/js/theme.js"></script>
+
+    <script>
+        document.getElementById('userName').innerText = localStorage.getItem('portal_user_email') || 'Profesor Anáhuac';
+    </script>
+</body>
+</html>
