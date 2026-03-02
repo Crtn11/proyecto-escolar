@@ -51,22 +51,12 @@
                 <p class="text-muted text-center mb-4">Colegio Anáhuac</p>
                 
                 <div class="mb-3">
-                  <label class="form-label">Correo Institucional</label>
-                  <input type="email" class="form-control" id="email" placeholder="nombre.apellido@anahuac.mx" />
+                  <label class="form-label">Usuario o Correo Institucional</label>
+                  <input type="text" class="form-control" id="email" placeholder="Ingresa tu usuario (ej: alumno, profesor...)" />
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Contraseña</label>
                   <input type="password" class="form-control" id="password" placeholder="********" />
-                </div>
-                
-                <div class="mb-3">
-                  <label class="form-label">Tipo de Usuario</label>
-                  <select class="form-select" id="userRole">
-                    <option value="alumno">Alumnado</option>
-                    <option value="profesor">Profesor / Catedrático</option>
-                    <option value="administrativo">Personal Administrativo</option>
-                    <option value="sistemas">Departamento de Sistemas</option>
-                  </select>
                 </div>
 
                 <div class="d-flex mt-1 justify-content-between align-items-center">
@@ -95,18 +85,26 @@
     <script src="assets/js/plugins/popper.min.js"></script>
     <script src="assets/js/plugins/simplebar.min.js"></script>
     <script src="assets/js/plugins/bootstrap.min.js"></script>
-    <script src="assets/js/fonts/custom-font.js"></script>
     <script src="assets/js/pcoded.js"></script>
-    <script src="assets/js/plugins/feather.min.js"></script>
 
     <script>
       function handleLogin() {
-        const role = document.getElementById('userRole').value;
-        const email = document.getElementById('email').value;
+        const userInput = document.getElementById('email').value.toLowerCase().trim();
+        let role = 'alumno'; // Default
+
+        // Lógica de detección de rol para el Mock
+        if (userInput.includes('profesor')) {
+          role = 'profesor';
+        } else if (userInput.includes('administrativo')) {
+          role = 'administrativo';
+        } else if (userInput.includes('sistemas')) {
+          role = 'sistemas';
+        } else {
+          role = 'alumno';
+        }
         
-        // Guardamos el rol en localStorage para el mock
         localStorage.setItem('portal_user_role', role);
-        localStorage.setItem('portal_user_email', email);
+        localStorage.setItem('portal_user_email', userInput);
         
         // Redirigimos al segundo factor de autenticación (2FA)
         window.location.href = '2fa.html';

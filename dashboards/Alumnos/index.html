@@ -23,7 +23,8 @@
         .logo-lg { max-height: 55px; width: auto; }
         .pc-sidebar .m-header { padding: 10px 20px; height: 80px; display: flex; align-items: center; }
         @media (max-width: 1024px) {
-            .pc-header { display: flex !important; }
+            .pc-header { display: flex !important; top: 0 !important; position: fixed !important; background: #fff !important; z-index: 1025 !important; }
+            .pc-container { margin-top: 70px !important; }
         }
     </style>
 </head>
@@ -47,18 +48,21 @@
             <div class="navbar-content">
                 <ul class="pc-navbar">
                     <li class="pc-item pc-caption"><label>Académico</label></li>
-                    <li class="pc-item"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
+                    <li class="pc-item active"><a href="index.html" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span class="pc-mtext">Dashboard</span></a></li>
                     <li class="pc-item"><a href="materias.html" class="pc-link"><span class="pc-micon"><i class="ti ti-book"></i></span><span class="pc-mtext">Mis Materias</span></a></li>
                     <li class="pc-item"><a href="horarios.html" class="pc-link"><span class="pc-micon"><i class="ti ti-calendar"></i></span><span class="pc-mtext">Horarios</span></a></li>
                     <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-file-text"></i></span><span class="pc-mtext">Calificaciones</span></a></li>
+                    
                     <li class="pc-item pc-caption"><label>Administrativo</label></li>
                     <li class="pc-item"><a href="#" class="pc-link"><span class="pc-micon"><i class="ti ti-credit-card"></i></span><span class="pc-mtext">Pagos y Facturación</span></a></li>
+                    
                     <li class="pc-item pc-caption"><label>Otros</label></li>
                     <li class="pc-item"><a href="../../login.html" class="pc-link"><span class="pc-micon"><i class="ti ti-logout"></i></span><span class="pc-mtext">Cerrar Sesión</span></a></li>
                 </ul>
             </div>
         </div>
     </nav>
+    <!-- [ Sidebar ] end -->
 
     <!-- [ Header ] start -->
     <header class="pc-header">
@@ -89,13 +93,14 @@
                     <li class="dropdown pc-h-item">
                         <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button">
                             <img src="../../assets/images/user/avatar-1.png" alt="user-image" class="user-avtar" />
-                            <span><span class="user-name" id="userName">Alumno</span></span>
+                            <span><span class="user-name" id="userName">Cargando...</span></span>
                         </a>
                     </li>
                 </ul>
             </div>
         </div>
     </header>
+    <!-- [ Header ] end -->
 
     <!-- [ Main Content ] start -->
     <div class="pc-container">
@@ -114,11 +119,13 @@
             </div>
 
             <div class="row">
+                <!-- Estadísticas Rápidas -->
                 <div class="col-md-6 col-xl-3">
                     <div class="card bg-grd-primary order-card">
                         <div class="card-body">
                             <h6 class="text-white">Promedio General</h6>
                             <h2 class="text-end text-white"><i class="ti ti-award float-start"></i><span>9.2</span></h2>
+                            <p class="m-b-0">Ciclo 2024-1</p>
                         </div>
                     </div>
                 </div>
@@ -127,6 +134,98 @@
                         <div class="card-body">
                             <h6 class="text-white">Asistencia</h6>
                             <h2 class="text-end text-white"><i class="ti ti-user-check float-start"></i><span>98%</span></h2>
+                            <p class="m-b-0">Total de faltas: 2</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card bg-grd-warning order-card">
+                        <div class="card-body">
+                            <h6 class="text-white">Tareas Pendientes</h6>
+                            <h2 class="text-end text-white"><i class="ti ti-list-check float-start"></i><span>4</span></h2>
+                            <p class="m-b-0">Próxima entrega: Mañana</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-xl-3">
+                    <div class="card bg-grd-danger order-card">
+                        <div class="card-body">
+                            <h6 class="text-white">Pagos Pendientes</h6>
+                            <h2 class="text-end text-white"><i class="ti ti-report-money float-start"></i><span>1</span></h2>
+                            <p class="m-b-0">Vence en 5 días</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tabla de Materias -->
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between">
+                            <h5>Mis Materias Actuales</h5>
+                            <a href="materias.html" class="btn btn-sm btn-link-primary">Ver detalle</a>
+                        </div>
+                        <div class="card-body p-0">
+                            <div class="table-responsive">
+                                <table class="table table-hover mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Materia</th>
+                                            <th>Profesor</th>
+                                            <th>Horario</th>
+                                            <th class="text-end">Calificación</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Matemáticas Avanzadas</td>
+                                            <td>Dr. Armando Casas</td>
+                                            <td>L-M-V 08:00</td>
+                                            <td class="text-end"><span class="badge bg-light-success">9.5</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Programación III</td>
+                                            <td>Ing. Elon Musk</td>
+                                            <td>M-J 10:00</td>
+                                            <td class="text-end"><span class="badge bg-light-primary">10.0</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ética Profesional</td>
+                                            <td>Lic. Sócrates</td>
+                                            <td>L-V 12:00</td>
+                                            <td class="text-end"><span class="badge bg-light-warning">8.0</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Avisos -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Avisos Recientes</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="media mb-3 d-flex">
+                                <div class="bg-light-primary p-2 rounded me-3">
+                                    <i class="ti ti-news text-primary"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h6 class="mb-1">Exámenes Finales</h6>
+                                    <p class="text-muted mb-0 small">Se han publicado las fechas oficiales de exámenes...</p>
+                                </div>
+                            </div>
+                            <div class="media mb-3 d-flex">
+                                <div class="bg-light-danger p-2 rounded me-3">
+                                    <i class="ti ti-alert-triangle text-danger"></i>
+                                </div>
+                                <div class="media-body">
+                                    <h6 class="mb-1">Mantenimiento Portal</h6>
+                                    <p class="text-muted mb-0 small">Este domingo el portal estará fuera de servicio...</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
